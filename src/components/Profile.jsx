@@ -29,7 +29,7 @@ export default function Profile(){
         <div className="team">
           <div className="container">
             <div className="row">
-              <div className="details" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '100px', minHeight: '100vh' }}>
+              <div className="details" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '50px', minHeight: '100vh' }}>
                 <div className="col-md-6">
                   <div className="team-item">
                     <div className="team-img">
@@ -42,14 +42,14 @@ export default function Profile(){
                   </div>
                   <p>Profile</p>
                   {isAuthenticated && (
-                    <>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                   <Link className="btn" to={`/edit`}>
                     Edit
                   </Link>
                   <Link className="btn" to="/" style={{ marginLeft: '10px' }}>
                     Home
                   </Link>
-                  </>
+                  </div>
                   )}
                 </div>
               </div>

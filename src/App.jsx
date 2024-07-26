@@ -1,8 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import * as authService from "./services/authService";
-import AuthContext, {isAdmin}from "./contexts/authContext";
-import Paths from "./paths";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/Core/Header";
 import Footer from "./components/Core/Footer";
 import VideoModal from "./components/Modals/VideoModal";
@@ -20,63 +16,13 @@ import EditBarber from "./components/EditBarber";
 import DeleteBarber from "./components/DeleteBarber";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
+import { AuthProvider } from "./contexts/authContext";
 
 
 function App() {
-    const navigate = useNavigate();
-
-    const [auth, setAuth] = useState(() => {
-        const accessToken = localStorage.getItem('accessToken');
-        const userId = localStorage.getItem('userId');
-        
-        return { accessToken, userId, isAdmin: isAdmin(userId) };
-    });
-
-    const loginSubmitHandler = async (values) => {
-        console.log("Submitting login with values:", values);
-        try {
-            const result = await authService.loginUser(values.email, values.password);
-            console.log("Login successful:", result);
-            setAuth({ ...result, isAdmin: isAdmin(result._id) });
-            localStorage.setItem('accessToken', result.accessToken);
-            localStorage.setItem('userId', result._id);
-            navigate(Paths.Home);
-        } catch (error) {
-            console.error("Login failed:", error);
-        }
-    };
-
-    const registerSubmitHandler = async (values) => {
-        console.log("Submitting register with values:", values);
-        try {
-            const result = await authService.registerUser(values.email, values.password, values.username);
-            console.log("Register successful:", result);
-            setAuth(result);
-            navigate(Paths.Home);
-        } catch (error) {
-            console.error("Register failed:", error);
-        }
-    };
-
-    const logoutHandler = () => {
-        setAuth({});
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('userId');
-        navigate(Paths.Home);
-    }
-
-    const values = {
-        registerSubmitHandler,
-        loginSubmitHandler,
-        logoutHandler,
-        username: auth.username,
-        email: auth.email,
-        isAuthenticated: !!auth.accessToken,
-        isAdmin: auth.isAdmin,
-    };
 
     return (
-        <AuthContext.Provider value={values}>
+        <AuthProvider>
             <>
                 <Header/>
                 <Routes>
@@ -98,7 +44,7 @@ function App() {
                 <VideoModal/>
                 <Footer/>
             </>
-        </AuthContext.Provider>
+        </AuthProvider>
     );
 }
 
