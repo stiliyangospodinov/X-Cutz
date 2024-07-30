@@ -6,6 +6,8 @@ export default function Profile(){
         isAuthenticated,
         username,
         email,
+        id
+      
 
       } = useContext(AuthContext);
     
@@ -43,7 +45,7 @@ export default function Profile(){
                   <p>Profile</p>
                   {isAuthenticated && (
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                  <Link className="btn" to={`/edit`}>
+                  <Link className="btn" to={`/profile/${id}`}>
                     Edit
                   </Link>
                   <Link className="btn" to="/" style={{ marginLeft: '10px' }}>

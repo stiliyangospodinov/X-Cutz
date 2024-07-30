@@ -32,6 +32,7 @@ export const getAllBarbers = async () => {
         }
     
 }
+
     export const getAllServices = async () => {
         try {
             const result = await request.get(`${baseUrl}/services`);
@@ -52,6 +53,8 @@ export const createBarber = async (barberData) => {
         throw error;
     }
 };
+
+
 export const getBarberById = async (id) => {
     try {
         const result = await request.get(`${baseUrl}/barbers/${id}`);

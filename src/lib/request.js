@@ -6,6 +6,7 @@ const buildOptions = (data) => {
         options.headers = {
             'content-type': 'application/json'
         };
+        
     }
 
     const token = localStorage.getItem('accessToken');

@@ -1,42 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { createBarber } from '../services/barberShopService';
 import { Link, useNavigate } from 'react-router-dom';
-import AuthContext from '../contexts/authContext';
 
 const CreateBarber = () => {
-    const { isAuthenticated } = useContext(AuthContext);
-    const [formData, setFormData] = useState({
-        name: '',
-        title: '',
-        photo: '',
-        description: ''
-    });
-
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-
     const navigate = useNavigate();
-
-    const handleChange = (event) => {
-        const { id, value } = event.target;
-        setFormData({ ...formData, [id]: value });
-    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        const formData = Object.fromEntries(new FormData(event.currentTarget));
+
         try {
-            if (!isAuthenticated) {
-                setErrorMessage('You need to be logged in to create a barber.');
-                return;
-            }
-
-            console.log('Form data:', formData); // Логирай данните от формуляра
-
-            const newBarber = await createBarber(formData);
-
+            await createBarber(formData);
             setSuccessMessage('Barber created successfully!');
-            console.log('Created barber:', newBarber);
-
             navigate('/team');
         } catch (error) {
             setErrorMessage('Error creating barber. Please try again.');
@@ -66,57 +43,21 @@ const CreateBarber = () => {
                         <div className="contact-form">
                             {errorMessage && <p className="text-danger">{errorMessage}</p>}
                             {successMessage && <p className="text-success">{successMessage}</p>}
-                            <form name="sentMessage" id="contactForm" onSubmit={handleSubmit}>
+                            <form id="contactForm" onSubmit={handleSubmit}>
                                 <div className="control-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="name"
-                                        placeholder="Name"
-                                        required
-                                        value={formData.name}
-                                        onChange={handleChange}
-                                    />
+                                    <input type="text" className="form-control" name="name" placeholder="Name" required />
                                 </div>
                                 <div className="control-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="title"
-                                        placeholder="Title"
-                                        required
-                                        value={formData.title}
-                                        onChange={handleChange}
-                                    />
+                                    <input type="text" className="form-control" name="title" placeholder="Title" required />
                                 </div>
                                 <div className="control-group">
-                                    <input
-                                        type="text"
-                                        className="form-control"
-                                        id="photo"
-                                        placeholder="Image URL"
-                                        required
-                                        value={formData.photo}
-                                        onChange={handleChange}
-                                    />
-                                    {formData.photo && (
-                                        <img src={formData.photo} alt="Barber" style={{ maxWidth: '100%', marginTop: '10px' }} onError={(e) => e.target.style.display = 'none'} />
-                                    )}
+                                    <input type="text" className="form-control" name="photo" placeholder="Image URL" required />
                                 </div>
                                 <div className="control-group">
-                                    <textarea
-                                        className="form-control"
-                                        id="description"
-                                        placeholder="Description"
-                                        required
-                                        value={formData.description}
-                                        onChange={handleChange}
-                                    />
+                                    <textarea className="form-control" name="description" placeholder="Description" required />
                                 </div>
                                 <div>
-                                    <button className="btn" type="submit" id="sendMessageButton">
-                                        Create
-                                    </button>
+                                    <button className="btn" type="submit">Create</button>
                                 </div>
                             </form>
                         </div>

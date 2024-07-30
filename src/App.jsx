@@ -17,6 +17,7 @@ import DeleteBarber from "./components/DeleteBarber";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
 import { AuthProvider } from "./contexts/authContext";
+import EditProfile from "./components/EditProfile";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                     <Route path="/edit/:id" element={<EditBarber />} />
                     <Route path="/delete/:id" element={<DeleteBarber />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/edit-profile/:id" element={<EditProfile />} />
                 </Routes>
                 <VideoModal/>
                 <Footer/>
