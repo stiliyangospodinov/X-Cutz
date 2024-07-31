@@ -18,6 +18,10 @@ import Logout from "./components/Logout";
 import Profile from "./components/Profile";
 import { AuthProvider } from "./contexts/authContext";
 import EditProfile from "./components/EditProfile";
+import AuthGuard from "./guards/AuthGuard";
+import GuestGuard from "./guards/GuestGuard";
+import AdminGuard from "./guards/AdminGuard";
+
 
 
 function App() {
@@ -34,14 +38,20 @@ function App() {
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route element={<AuthGuard />}>
+                    <Route path="/logout" element={<Logout />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/edit-profile/:id" element={<EditProfile />} />
+                    </Route>
+                    <Route element={<GuestGuard />}>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/logout" element={<Logout />} />
+                    </Route>
+                    <Route element={<AdminGuard />} >
                     <Route path="/create" element={<CreateBarber />} />
                     <Route path="/edit/:id" element={<EditBarber />} />
                     <Route path="/delete/:id" element={<DeleteBarber />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route path="/edit-profile/:id" element={<EditProfile />} />
+                   </Route>
                 </Routes>
                 <VideoModal/>
                 <Footer/>

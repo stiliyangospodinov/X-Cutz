@@ -1,83 +1,129 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import AuthContext from "../contexts/authContext";
-import CommentsSection from "./Comments";
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { getBarberById, updateBarber } from '../services/barberShopService';
 
-export default function BarberDetails() {
-  const { 
-    isAuthenticated, 
-    isAdmin,
-    username,
-  } = useContext(AuthContext);
-  const { id } = useParams();
+const EditBarber = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [barber, setBarber] = useState({
+        name: '',
+        title: '',
+        photo: '',
+        description: ''
+    });
+    const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
 
-  const [barber, setBarber] = useState({});
+    useEffect(() => {
+        const fetchBarber = async () => {
+            try {
+                const data = await getBarberById(id);
+                setBarber(data);
+            } catch (error) {
+                setErrorMessage('Error fetching barber details');
+                console.error('Error fetching barber:', error);
+            }
+        };
 
-  useEffect(() => {
-    fetch(`http://localhost:3030/data/barbers/${id}/`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Barber details fetched:', data);
-        setBarber(data);
-      })
-      .catch((error) => console.error('Error fetching barber details:', error));
-  }, [id]);
+        fetchBarber();
+    }, [id]);
 
-  return (
-    <>
-      <div className="page-header">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h2>Barber Details</h2>
-            </div>
-            <div className="col-12">
-              <Link to="/">Home</Link>
-              <Link to="/team">Team</Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="contact">
-        <div className="contact-form" style={{ backgroundColor: 'white' }}>
-          <div className="team">
-            <div className="container">
-              <div className="row">
-                <div className="details" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '100px', minHeight: '100vh' }}>
-                  <div className="col-md-6">
-                    <div className="team-item">
-                      <div className="team-img">
-                        <img src={barber.photo} alt="Team Image" />
-                      </div>
-                      <div className="team-text">
-                        <h2>{barber.name}</h2>
-                        <p>{barber.title}</p>
-                      </div>
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setBarber((prevBarber) => ({
+            ...prevBarber,
+            [name]: value,
+        }));
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await updateBarber(id, barber);
+            setSuccessMessage('Barber updated successfully!');
+            navigate('/team');
+        } catch (error) {
+            setErrorMessage('Error updating barber. Please try again.');
+            console.error('Error updating barber:', error);
+        }
+    };
+
+    return (
+        <div>
+            <div className="page-header">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12">
+                            <h2>Edit Barber</h2>
+                        </div>
+                        <div className="col-12">
+                            <Link to="/">Home</Link>
+                            <Link to="/team">Team</Link>
+                        </div>
                     </div>
-                    <p>{barber.description}</p>
-                    {isAuthenticated && isAdmin && (
-                      <>
-                        <Link className="btn" to={`/edit/${id}`}>
-                          Edit
-                        </Link>
-                        <Link className="btn" to={`/delete/${id}`} style={{ marginLeft: '10px' }}>
-                          Delete
-                        </Link>
-                      </>
-                    )}
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <CommentsSection 
-            barberId={id}
-            isAuthenticated={isAuthenticated}
-            username={username}
-          />
-          <div className="like-btn"></div>
+            <div className="contact">
+                <div className="container">
+                    <div className="align-items-center">
+                        <div className="col-md-4" />
+                        <div className="contact-form">
+                            {errorMessage && <p className="text-danger">{errorMessage}</p>}
+                            {successMessage && <p className="text-success">{successMessage}</p>}
+                            <form id="contactForm" onSubmit={handleSubmit}>
+                                <div className="control-group">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="name"
+                                        placeholder="Name"
+                                        value={barber.name}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="control-group">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="title"
+                                        placeholder="Title"
+                                        value={barber.title}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="control-group">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="photo"
+                                        placeholder="Image URL"
+                                        value={barber.photo}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div className="control-group">
+                                    <textarea
+                                        className="form-control"
+                                        name="description"
+                                        placeholder="Description"
+                                        value={barber.description}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                </div>
+                                <div>
+                                    <button className="btn" type="submit">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </>
-  );
-}
+    );
+};
+
+export default EditBarber;

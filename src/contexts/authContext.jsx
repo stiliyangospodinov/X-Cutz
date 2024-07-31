@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as authService from "../services/authService";
 import Paths from "../paths";
@@ -14,21 +14,61 @@ const isAdmin = (userId) => {
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
 
-    const [auth, setAuth] = useState(() => {
+    const [auth, setAuth] = useState({
+        accessToken: null,
+        userId: null,
+        username: null,
+        email: null,
+        isAdmin: false
+    });
+
+    useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
         const userId = localStorage.getItem('userId');
-        
-        return { accessToken, userId, isAdmin: isAdmin(userId) };
-    });
+        const username = localStorage.getItem('username');
+        const email = localStorage.getItem('email');
+
+        if (accessToken && userId) {
+            setAuth({
+                accessToken,
+                userId,
+                username,
+                email,
+                isAdmin: isAdmin(userId)
+            });
+        }
+    }, []);
+
+    const clearAuth = () => {
+        setAuth({
+            accessToken: null,
+            userId: null,
+            username: null,
+            email: null,
+            isAdmin: false
+        });
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('username');
+        localStorage.removeItem('email');
+    };
 
     const loginSubmitHandler = async (values) => {
         console.log("Submitting login with values:", values);
         try {
             const result = await authService.loginUser(values.email, values.password);
             console.log("Login successful:", result);
-            setAuth({ ...result, isAdmin: isAdmin(result._id) });
+            setAuth({
+                accessToken: result.accessToken,
+                userId: result._id,
+                username: result.username,
+                email: result.email,
+                isAdmin: isAdmin(result._id)
+            });
             localStorage.setItem('accessToken', result.accessToken);
             localStorage.setItem('userId', result._id);
+            localStorage.setItem('username', result.username);
+            localStorage.setItem('email', result.email);
             navigate(Paths.Home);
         } catch (error) {
             console.error("Login failed:", error);
@@ -40,7 +80,17 @@ export const AuthProvider = ({ children }) => {
         try {
             const result = await authService.registerUser(values.email, values.password, values.username);
             console.log("Register successful:", result);
-            setAuth(result);
+            setAuth({
+                accessToken: result.accessToken,
+                userId: result._id,
+                username: result.username,
+                email: result.email,
+                isAdmin: isAdmin(result._id)
+            });
+            localStorage.setItem('accessToken', result.accessToken);
+            localStorage.setItem('userId', result._id);
+            localStorage.setItem('username', result.username);
+            localStorage.setItem('email', result.email);
             navigate(Paths.Home);
         } catch (error) {
             console.error("Register failed:", error);
@@ -48,11 +98,9 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logoutHandler = () => {
-        setAuth({});
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('userId');
+        clearAuth();
         navigate(Paths.Home);
-    }
+    };
 
     const values = {
         registerSubmitHandler,
@@ -60,6 +108,7 @@ export const AuthProvider = ({ children }) => {
         logoutHandler,
         username: auth.username,
         email: auth.email,
+        id: auth.userId,
         isAuthenticated: !!auth.accessToken,
         isAdmin: auth.isAdmin,
     };
@@ -68,8 +117,8 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider value={values}>
             {children}
         </AuthContext.Provider>
-    )
-}
+    );
+};
 
 export { isAdmin };
 export default AuthContext;
