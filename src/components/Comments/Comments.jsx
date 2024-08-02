@@ -1,14 +1,16 @@
-import React, { useContext, useReducer, useEffect } from 'react';
-import * as commentService from '../services/commentService';
-import AuthContext from '../contexts/authContext';
+// CommentsComponent.jsx
+import React, { useContext, useReducer, useEffect, useState } from 'react';
+import * as commentService from '../../services/commentService';
+import AuthContext from '../../contexts/authContext';
 import reducer from './commentReducer'; 
-import useForm from '../hooks/useForm';
+import useForm from '../../hooks/useForm';
+import './comments.css'; // Импортиране на стиловете
 
 const CommentsComponent = ({ barberId }) => {
     const { username, isAuthenticated } = useContext(AuthContext);
     const [comments, dispatch] = useReducer(reducer, []);
     const { values, onChange, onSubmit, setValues } = useForm(addCommentHandler, { comment: '' });
-    const [error, setError] = React.useState('');
+    const [error, setError] = useState('');
 
     const fetchComments = async () => {
         try {
@@ -63,25 +65,26 @@ const CommentsComponent = ({ barberId }) => {
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div className="comment-section">
+
             <h3>Comments</h3>
+  
             {error && <p className="text-danger">{error}</p>}
-            <div style={{ width: '100%', maxWidth: '600px' }}>
+            <div className="comment-list">
                 {comments.length > 0 ? (
                     comments.map(comment => (
-                        <div key={comment._id} className="comment" style={{ textAlign: 'center', marginBottom: '10px' }}>
+                        <div key={comment._id} className="comment">
                             <h5>{comment.owner ? comment.owner.username : 'Unknown'}</h5>
                             <p>{comment.text}</p>
                         </div>
                     ))
                 ) : (
-                    <p>No comments yet.</p>
+                    <p className="no-comments">No comments yet.</p>
                 )}
             </div>
-            {isAuthenticated  ?(
-            <div className="row" style={{ width: '100%', maxWidth: '600px', marginTop: '20px' }}>
-                <div className="col-12" style={{ display: 'flex', justifyContent: 'center' }}>
-                    <form onSubmit={onSubmit} style={{ width: '100%' }}>
+            {isAuthenticated ? (
+                <div className="comment-form">
+                    <form onSubmit={onSubmit}>
                         <div className="control-group">
                             <textarea
                                 className="form-control"
@@ -90,23 +93,20 @@ const CommentsComponent = ({ barberId }) => {
                                 value={values.comment}
                                 onChange={onChange}
                                 required
-                                style={{ width: '100%', minHeight: '100px' }}
                             />
                         </div>
-                        <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center' }}>
+                        <div className="buttons">
                             <button className="btn" type="submit">
                                 Submit
                             </button>
-                            <button className="btn btn-danger" onClick={deleteLastComment} style={{ marginLeft: '10px' }}>
-                        Delete Last Comment
-                    </button>
+                            <button className="btn btn-danger" onClick={deleteLastComment} type="button">
+                                Delete Last Comment
+                            </button>
                         </div>
                     </form>
-
                 </div>
-            </div>
             ) : (
-                <p>You need to be logged in to add a comment.</p>
+                <p className="no-comments">You need to be logged in to add a comment.</p>
             )}
         </div>
     );

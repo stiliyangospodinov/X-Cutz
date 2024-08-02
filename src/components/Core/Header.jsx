@@ -77,7 +77,7 @@ export default function Header() {
                 Price
               </Link>
               <Link to="/team" className="nav-item nav-link">
-                Barber
+                Barbers
               </Link>
               <Link to="/gallery" className="nav-item nav-link">
                 Gallery

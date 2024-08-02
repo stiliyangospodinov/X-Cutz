@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import * as barberShopService from "../services/barberShopService";
-import PriceCard from "./Cards/PriceCard";
+import * as barberShopService from "../../services/barberShopService";
+import PriceCard from "../Cards/PriceCard";
 export default function Price (){
 
   const [prices, setPrices] = useState([]);

@@ -2,27 +2,26 @@ import { Route, Routes } from "react-router-dom";
 import Header from "./components/Core/Header";
 import Footer from "./components/Core/Footer";
 import VideoModal from "./components/Modals/VideoModal";
-import Home from "./components/Home";
-import Barber from "./components/Barber";
-import BarberDetails from "./components/BarberDetails";
-import About from "./components/About";
-import Price from "./components/Price";
-import Service from "./components/Service";
-import Login from "./components/Login";
-import Register from "./components/Register";
-import Gallery from "./components/Gallery";
-import CreateBarber from "./components/CreateBarber";
-import EditBarber from "./components/EditBarber";
-import DeleteBarber from "./components/DeleteBarber";
-import Logout from "./components/Logout";
-import Profile from "./components/Profile";
+import Home from "./components/Home/Home";
+import Barber from "./components/Barber/Barber";
+import BarberDetails from "./components/BarberDetails/BarberDetails";
+import About from "./components/About/About";
+import Price from "./components/Price/Price";
+import Service from "./components/Service/Service";
+import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
+import Gallery from "./components/Gallery/Gallery";
+import CreateBarber from "./components/CreateBarber/CreateBarber";
+import EditBarber from "./components/EditBarber/EditBarber";
+import DeleteBarber from "./components/DeleteBarber/DeleteBarber";
+import Logout from "./components/Logout/Logout";
+import Profile from "./components/Profile/Profile";
 import { AuthProvider } from "./contexts/authContext";
-import EditProfile from "./components/EditProfile";
+import EditProfile from "./components/EditProfile/EditProfile";
 import AuthGuard from "./guards/AuthGuard";
 import GuestGuard from "./guards/GuestGuard";
 import AdminGuard from "./guards/AdminGuard";
-
-
+import NotFound from "./components/404/NotFound";
 
 function App() {
 
@@ -52,6 +51,7 @@ function App() {
                     <Route path="/edit/:id" element={<EditBarber />} />
                     <Route path="/delete/:id" element={<DeleteBarber />} />
                    </Route>
+                   <Route path="*" element={<NotFound/>} />
                 </Routes>
                 <VideoModal/>
                 <Footer/>

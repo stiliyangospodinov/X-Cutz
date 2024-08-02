@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getBarberById, updateBarber } from '../services/barberShopService';
+import { getBarberById, updateBarber } from '../../services/barberShopService';
 
 const EditBarber = () => {
     const { id } = useParams();
@@ -41,7 +41,7 @@ const EditBarber = () => {
         try {
             await updateBarber(id, barber);
             setSuccessMessage('Barber updated successfully!');
-            navigate('/team');
+            navigate(`/barber/${id}`);
         } catch (error) {
             setErrorMessage('Error updating barber. Please try again.');
             console.error('Error updating barber:', error);

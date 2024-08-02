@@ -1,60 +1,58 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import AuthContext from '../contexts/authContext';
-import { getProfileById, updateProfile } from '../services/profileService';
+import { getProfile, updateProfile } from '../../services/profileService';
 
 const EditProfile = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { isAuthenticated } = useContext(AuthContext);
 
-    const [profile, setProfile] = useState({
-        username: '',
-        email: ''
-    });
+    const [profile, setProfile] = useState({ username: '', email: '' });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const data = await getProfileById(id);
-                setProfile({
-                    username: data.username || '',
-                    email: data.email || ''
-                });
+                const profileData = await getProfile();
+                setProfile(profileData);
             } catch (error) {
-                setErrorMessage('Error fetching profile details');
-                console.error('Error fetching profile:', error);
+                setErrorMessage('Failed to fetch profile data');
+                console.error('Fetch profile error:', error);
             }
         };
 
         fetchProfile();
-    }, [id]);
+    }, []);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setProfile((prevProfile) => ({
-            ...prevProfile,
-            [name]: value,
-        }));
+    useEffect(() => {
+        if (successMessage) {
+            // Допълнителна логика, ако е необходимо, когато профилът е успешно обновен
+            // Например, можете да изчистите съобщението за успех след известно време
+            const timer = setTimeout(() => {
+                setSuccessMessage('');
+            }, 3000); // Изчистване след 3 секунди
+            return () => clearTimeout(timer);
+        }
+    }, [successMessage]); // Следи за промяна в successMessage
+
+    const handleChange = (event) => {
+        setProfile({
+            ...profile,
+            [event.target.name]: event.target.value
+        });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await updateProfile(id, profile);
+            await updateProfile(profile);
             setSuccessMessage('Profile updated successfully!');
-            navigate(`/profile/`);
+            navigate(`/profile/${id}`);
         } catch (error) {
-            setErrorMessage('Error updating profile. Please try again.');
-            console.error('Error updating profile:', error);
+            setErrorMessage('Failed to update profile');
+            console.error('Update profile error:', error);
         }
     };
-
-    if (!isAuthenticated) {
-        return <p>You need to be logged in to edit your profile.</p>;
-    }
 
     return (
         <div>
@@ -85,7 +83,7 @@ const EditProfile = () => {
                                         className="form-control"
                                         name="username"
                                         placeholder="Username"
-                                        value={profile.username || ''} // Коментар премахнат
+                                        value={profile.username}
                                         onChange={handleChange}
                                         required
                                     />
@@ -96,7 +94,7 @@ const EditProfile = () => {
                                         className="form-control"
                                         name="email"
                                         placeholder="Email"
-                                        value={profile.email || ''} // Коментар премахнат
+                                        value={profile.email}
                                         onChange={handleChange}
                                         required
                                     />

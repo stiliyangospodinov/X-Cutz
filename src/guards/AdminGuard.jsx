@@ -5,7 +5,7 @@ import AuthContext from "../contexts/authContext";
 const AdminGuard = () => {
     const { isAuthenticated, isAdmin } = useContext(AuthContext);
 
-    if (isAuthenticated && !isAdmin) {
+    if (!isAuthenticated && !isAdmin) {
         return <Navigate to="/" />;
     }
 

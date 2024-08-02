@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import * as barberService from "../services/barberShopService";
-import BarberCard from "./Cards/BarberCard";
-import AuthContext from "../contexts/authContext";
+import * as barberService from "../../services/barberShopService";
+import BarberCard from "../Cards/BarberCard";
+import AuthContext from "../../contexts/authContext";
 export default function Barber() {
   const {
     isAuthenticated,
@@ -25,11 +25,11 @@ export default function Barber() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h2>Barber</h2>
+            <h2>Barbers</h2>
           </div>
           <div className="col-12">
-            <a href="">Home</a>
-            <a href="">Barber</a>
+          <Link to="/">Home</Link>
+          <Link to="/team">Barbers</Link>
           </div>
         </div>
       </div>

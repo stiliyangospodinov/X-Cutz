@@ -1,20 +1,31 @@
+
 import * as request from '../lib/request';
 
 const baseUrl = "http://localhost:3030/users";
 
-export const getProfileById = async (id) => {
+export const getProfile = async () => {
     try {
-        const result = await request.get(`${baseUrl}/${id}`);
+        console.log('Fetching profile data for the current user');
+        const result = await request.get(`${baseUrl}/me`);
+        console.log('Profile data from server:', result);
+        if (!result || Object.keys(result).length === 0) {
+            throw new Error('No profile data found');
+        }
         return result;
     } catch (error) {
-        console.log('Error fetching profile:', error);
+        console.error('Error fetching profile:', error);
+        throw error;
     }
 };
-
-export const updateProfile = async (id, profileData) => {
+export const updateProfile = async (profile) => {
     try {
-        const result = await request.put(`${baseUrl}/${id}`, profileData);
-        return result;
+        const response = await request.put('http://localhost:3030/users/me', profile);
+        if (Object.keys(response).length === 0) {
+            console.log('Profile update was successful, but no data returned.');
+        } else {
+            console.log('Profile update response:', response);
+        }
+        return response;
     } catch (error) {
         console.error('Error updating profile:', error);
         throw error;

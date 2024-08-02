@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import * as barberService from "../services/barberShopService";
-import GalleryCard from "./Cards/GalleryCard";
+import * as barberService from "../../services/barberShopService";
+import GalleryCard from "../Cards/GalleryCard";
 export default function () {
   const [pictures, setPictures] = useState([]);
 

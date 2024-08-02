@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import AuthContext from '../contexts/authContext';
-import { getBarberById } from '../services/barberShopService';
-import CommentsComponent from './Comments';
+import AuthContext from '../../contexts/authContext';
+import { getBarberById } from '../../services/barberShopService';
+import CommentsComponent from '../Comments/Comments';
 
 export default function BarberDetails() {
     const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
@@ -67,12 +67,12 @@ export default function BarberDetails() {
                                                 </Link>
                                             </>
                                         )}
+                    <CommentsComponent barberId={id} />
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <CommentsComponent barberId={id} />
                     <div className="like-btn"></div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { deleteBarber, getBarberById } from '../services/barberShopService';
-import AuthContext from '../contexts/authContext';
+import { deleteBarber, getBarberById } from '../../services/barberShopService';
+import AuthContext from '../../contexts/authContext';
 
 const DeleteBarber = () => {
     const { id } = useParams();

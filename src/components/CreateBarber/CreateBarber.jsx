@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createBarber } from '../services/barberShopService';
+import { createBarber } from '../../services/barberShopService';
 import { Link, useNavigate } from 'react-router-dom';
 
 const CreateBarber = () => {

@@ -6,7 +6,6 @@ const buildOptions = (data) => {
         options.headers = {
             'content-type': 'application/json'
         };
-        
     }
 
     const token = localStorage.getItem('accessToken');
@@ -22,22 +21,34 @@ const buildOptions = (data) => {
 };
 
 const request = async (method, url, data) => {
-    const response = await fetch(url, {
-        ...buildOptions(data),
-        method,
-    });
+    try {
+        const options = buildOptions(data);
+        console.log(`Request Method: ${method}`);
+        console.log(`Request URL: ${url}`);
+        console.log(`Request Options:`, options);
 
-    if (response.status === 204) {
-        return {};
+        const response = await fetch(url, {
+            ...options,
+            method,
+        });
+
+        if (response.status === 204) {
+            return {};
+        }
+
+        const result = await response.json();
+        console.log(`Response Status: ${response.status}`);
+        console.log(`Response Data:`, result);
+
+        if (!response.ok) {
+            throw result;
+        } 
+
+        return result;
+    } catch (error) {
+        console.error('Error making request:', error);
+        throw error;
     }
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw result;
-    } 
-
-    return result;
 };
 
 export const get = request.bind(null, 'GET');

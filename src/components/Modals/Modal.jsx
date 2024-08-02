@@ -1,16 +1,19 @@
 import React from 'react';
-import Modal from 'react-modal';
-import './modalStyles.css'
-Modal.setAppElement('#root');
-const CustomModal = ({ isOpen, onRequestClose, children }) => (
-  <Modal
-    isOpen={isOpen}
-    onRequestClose={onRequestClose}
-    className="custom-modal"
-    overlayClassName="custom-overlay"
-  >
-    {children}
-  </Modal>
-);
+import './modalStyles.css';
 
-export default CustomModal
+const Modal = ({ isOpen, onClose, service }) => {
+    if (!isOpen || !service) return null;
+
+    return (
+        <div className="modal-overlay">
+            <div className="modal-content">
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+                <p>{service.more}</p>
+                <button onClick={onClose}>Close</button>
+            </div>
+        </div>
+    );
+};
+
+export default Modal;
