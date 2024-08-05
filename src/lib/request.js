@@ -1,4 +1,4 @@
-const buildOptions = (data) => {
+const buildOptions = (data, isAdmin = false) => {
     const options = {};
 
     if (data) {
@@ -14,6 +14,13 @@ const buildOptions = (data) => {
         options.headers = {
             ...options.headers,
             'X-Authorization': token
+        };
+    }
+
+    if (isAdmin) {
+        options.headers = {
+            ...options.headers,
+            'X-Admin': 'true'
         };
     }
 

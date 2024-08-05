@@ -40,14 +40,7 @@ export default function Footer (){
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <div className="footer-link">
-                    <h2>Quick Links</h2>
-                    <a href="">Terms of use</a>
-                    <a href="">Privacy policy</a>
-                    <a href="">Cookies</a>
-                    <a href="">Help</a>
-                    <a href="">FQAs</a>
-                  </div>
+
                 </div>
               </div>
             </div>

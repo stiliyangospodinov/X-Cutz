@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getProfile, updateProfile } from '../../services/profileService';
 
 const EditProfile = () => {
-    const { id } = useParams();
+    const { id } = useParams(); // Получаване на id от URL
     const navigate = useNavigate();
 
     const [profile, setProfile] = useState({ username: '', email: '' });
@@ -13,7 +13,8 @@ const EditProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const profileData = await getProfile();
+                // Получаване на профилните данни, включително ID-то
+                const profileData = await getProfile(id);
                 setProfile(profileData);
             } catch (error) {
                 setErrorMessage('Failed to fetch profile data');
@@ -22,32 +23,31 @@ const EditProfile = () => {
         };
 
         fetchProfile();
-    }, []);
+    }, [id]); // Добавете зависимост id, за да се изпълни отново при промяна на id
 
     useEffect(() => {
         if (successMessage) {
-            // Допълнителна логика, ако е необходимо, когато профилът е успешно обновен
-            // Например, можете да изчистите съобщението за успех след известно време
             const timer = setTimeout(() => {
                 setSuccessMessage('');
-            }, 3000); // Изчистване след 3 секунди
+            }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [successMessage]); // Следи за промяна в successMessage
+    }, [successMessage]);
 
     const handleChange = (event) => {
-        setProfile({
-            ...profile,
-            [event.target.name]: event.target.value
-        });
+        const { name, value } = event.target;
+        setProfile((prevProfile) => ({
+            ...prevProfile,
+            [name]: value
+        }));
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await updateProfile(profile);
+            await updateProfile(profile, id); // Изпращане на профилните данни за актуализация
             setSuccessMessage('Profile updated successfully!');
-            navigate(`/profile/${id}`);
+            navigate(`/profile/${id}`); // Връщане към профила след успешен ъпдейт
         } catch (error) {
             setErrorMessage('Failed to update profile');
             console.error('Update profile error:', error);
@@ -117,3 +117,4 @@ const EditProfile = () => {
 };
 
 export default EditProfile;
+

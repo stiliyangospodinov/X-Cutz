@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Core/Header";
 import Footer from "./components/Core/Footer";
-import VideoModal from "./components/Modals/VideoModal";
 import Home from "./components/Home/Home";
 import Barber from "./components/Barber/Barber";
 import BarberDetails from "./components/BarberDetails/BarberDetails";
@@ -53,7 +52,6 @@ function App() {
                    </Route>
                    <Route path="*" element={<NotFound/>} />
                 </Routes>
-                <VideoModal/>
                 <Footer/>
             </>
         </AuthProvider>

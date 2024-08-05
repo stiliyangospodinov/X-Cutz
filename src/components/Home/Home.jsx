@@ -1,9 +1,15 @@
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import { useContext } from "react";
+import VideoModal from '../Shared/Modals/VideoModal/VideoModal';
 
 export default function Home() {
-    const { isAuthenticated } = useContext(AuthContext); // преместено вътре в компонента
+    const { isAuthenticated } = useContext(AuthContext);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const openModal = () => setModalIsOpen(true);
+    const closeModal = () => setModalIsOpen(false);
 
     return (
         <div className="hero">
@@ -33,13 +39,20 @@ export default function Home() {
                 <button
                     type="button"
                     className="btn-play"
-                    data-toggle="modal"
-                    data-src="https://www.youtube.com/watch?v=4grOZGIo2TM"
-                    data-target="#videoModal"
+                    onClick={openModal} 
                 >
                     <span />
                 </button>
             </div>
+
+            <VideoModal
+                isOpen={modalIsOpen}
+                onClose={closeModal}
+                content={{
+                    type: 'video',
+                    src: 'https://www.youtube.com/embed/4grOZGIo2TM'
+                }}
+            />
         </div>
     );
 }

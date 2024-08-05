@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Modal from '../Modals/Modal';
+import Modal from '../Shared/Modals/Modal/Modal';
 
 export default function About() {
     const [modalIsOpen, setModalIsOpen] = useState(false);

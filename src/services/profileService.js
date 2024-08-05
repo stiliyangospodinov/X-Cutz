@@ -17,14 +17,17 @@ export const getProfile = async () => {
         throw error;
     }
 };
-export const updateProfile = async (profile) => {
+
+export const updateProfile = async (profile, isAdmin = false) => {
     try {
-        const response = await request.put('http://localhost:3030/users/me', profile);
+        const response = await request.put(`http://localhost:3030/users/${profile._id}`, profile, isAdmin);
+        
         if (Object.keys(response).length === 0) {
             console.log('Profile update was successful, but no data returned.');
         } else {
             console.log('Profile update response:', response);
         }
+
         return response;
     } catch (error) {
         console.error('Error updating profile:', error);

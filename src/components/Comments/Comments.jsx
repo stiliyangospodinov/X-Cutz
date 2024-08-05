@@ -1,9 +1,9 @@
-// CommentsComponent.jsx
 import React, { useContext, useReducer, useEffect, useState } from 'react';
 import * as commentService from '../../services/commentService';
 import AuthContext from '../../contexts/authContext';
 import reducer from './commentReducer'; 
 import useForm from '../../hooks/useForm';
+import LogRegSection from '../Shared/LogRegSection/LogRegSection'; // Импорт на новия компонент
 import './comments.css'; // Импортиране на стиловете
 
 const CommentsComponent = ({ barberId }) => {
@@ -66,9 +66,8 @@ const CommentsComponent = ({ barberId }) => {
 
     return (
         <div className="comment-section">
-
             <h3>Comments</h3>
-  
+
             {error && <p className="text-danger">{error}</p>}
             <div className="comment-list">
                 {comments.length > 0 ? (
@@ -106,7 +105,7 @@ const CommentsComponent = ({ barberId }) => {
                     </form>
                 </div>
             ) : (
-                <p className="no-comments">You need to be logged in to add a comment.</p>
+                <LogRegSection text="You need to be logged in to add a comment." /> 
             )}
         </div>
     );
