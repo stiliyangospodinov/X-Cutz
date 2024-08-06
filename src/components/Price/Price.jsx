@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as barberShopService from "../../services/barberShopService";
 import PriceCard from "../Cards/PriceCard";
+import { Link } from "react-router-dom";
 export default function Price (){
 
   const [prices, setPrices] = useState([]);
@@ -18,8 +19,8 @@ export default function Price (){
             <h2>Prices</h2>
           </div>
           <div className="col-12">
-            <a href="">Home</a>
-            <a href="">Price</a>
+            <Link to="/">Home</Link>
+            <Link to="/prices">Price</Link>
           </div>
         </div>
       </div>

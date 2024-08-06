@@ -7,9 +7,7 @@ const AuthContext = createContext();
 AuthContext.displayName = "AuthContext";
 const ADMIN_ID = '60f0cf0b-34b0-4abd-9769-8c42f830dffc';
 
-const isAdmin = (userId) => {
-    return userId === ADMIN_ID;
-};
+const isAdmin = (userId) => userId === ADMIN_ID;
 
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
@@ -21,6 +19,7 @@ export const AuthProvider = ({ children }) => {
         email: null,
         isAdmin: false
     });
+    const [authError, setAuthError] = useState('');
 
     useEffect(() => {
         const accessToken = localStorage.getItem('accessToken');
@@ -54,10 +53,8 @@ export const AuthProvider = ({ children }) => {
     };
 
     const loginSubmitHandler = async (values) => {
-        console.log("Submitting login with values:", values);
         try {
             const result = await authService.loginUser(values.email, values.password);
-            console.log("Login successful:", result);
             setAuth({
                 accessToken: result.accessToken,
                 userId: result._id,
@@ -69,17 +66,16 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('userId', result._id);
             localStorage.setItem('username', result.username);
             localStorage.setItem('email', result.email);
+            setAuthError(null); // Изчистване на грешките при успешен вход
             navigate(Paths.Home);
         } catch (error) {
-            console.error("Login failed:", error);
+            setAuthError(error.message || "Login failed");
         }
     };
 
     const registerSubmitHandler = async (values) => {
-        console.log("Submitting register with values:", values);
         try {
             const result = await authService.registerUser(values.email, values.password, values.username);
-            console.log("Register successful:", result);
             setAuth({
                 accessToken: result.accessToken,
                 userId: result._id,
@@ -91,9 +87,10 @@ export const AuthProvider = ({ children }) => {
             localStorage.setItem('userId', result._id);
             localStorage.setItem('username', result.username);
             localStorage.setItem('email', result.email);
+            setAuthError(null); // Изчистване на грешките при успешна регистрация
             navigate(Paths.Home);
         } catch (error) {
-            console.error("Register failed:", error);
+            setAuthError(error.message || "A user with the same email already exists");
         }
     };
 
@@ -111,6 +108,7 @@ export const AuthProvider = ({ children }) => {
         id: auth.userId,
         isAuthenticated: !!auth.accessToken,
         isAdmin: auth.isAdmin,
+        authError,
     };
 
     return (

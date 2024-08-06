@@ -28,16 +28,16 @@ export default function Header() {
             <div className="col-md-6">
               <div className="top-bar-right">
                 <div className="social">
-                  <a href="">
+                  <a href="http://twitter.com">
                     <i className="fab fa-twitter" />
                   </a>
-                  <a href="">
+                  <a href="http://facebook.com">
                     <i className="fab fa-facebook-f" />
                   </a>
-                  <a href="">
+                  <a href="http://linkedin.com">
                     <i className="fab fa-linkedin-in" />
                   </a>
-                  <a href="">
+                  <a href="http://instagram.com">
                     <i className="fab fa-instagram" />
                   </a>
                 </div>

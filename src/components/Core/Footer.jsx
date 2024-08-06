@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Footer (){
     return (
     <div className="footer">
@@ -64,12 +66,12 @@ export default function Footer (){
           <div className="row">
             <div className="col-md-6">
               <p>
-                © <a href="#">Your Site Name</a>, All Right Reserved.
+                © <Link to="/">Barber X</Link>, All Right Reserved.
               </p>
             </div>
             <div className="col-md-6">
               <p>
-                Designed By <a href="https://htmlcodex.com">HTML Codex</a>
+                Designed By <a href="https://facebook.com">Stiliyan Gospodinov</a>
               </p>
             </div>
           </div>

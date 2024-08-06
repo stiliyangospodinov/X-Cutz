@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import * as barberService from "../../services/barberShopService";
 import GalleryCard from "../Cards/GalleryCard";
+import { Link } from "react-router-dom";
 export default function () {
   const [pictures, setPictures] = useState([]);
 
@@ -17,8 +18,8 @@ export default function () {
               <h2>Gallery</h2>
             </div>
             <div className="col-12">
-              <a href="">Home</a>
-              <a href="">Gallery</a>
+              <Link to="/">Home</Link>
+              <Link to="/gallery">Gallery</Link>
             </div>
           </div>
         </div>
