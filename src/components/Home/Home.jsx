@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
-import { useContext } from "react";
 import VideoModal from '../Shared/Modals/VideoModal/VideoModal';
+import NewsFeed from '../NewsFeed/NewsFeed';
 
 export default function Home() {
     const { isAuthenticated } = useContext(AuthContext);
@@ -16,11 +16,13 @@ export default function Home() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-sm-12 col-md-6">
-                        <div className="hero-text">
+                        <div className="hero-text animated fadeInLeft">
                             <h1>Welcome to the official site of Barber X!</h1>
-                            <p>At Barber X, we believe that a good haircut can change your whole day. Our team of professional barbers are here to offer you the best service and help you look great. Whether you want a classic hairstyle, a modern updo, or a simple refresh, we've got you covered. Make an appointment today and see for yourself!</p>
-                            {!isAuthenticated && (
+                            {isAuthenticated ? (
+                                <NewsFeed />
+                            ) : (
                                 <>
+                                    <p>At Barber X, we believe that a good haircut can change your whole day. Our team of professional barbers are here to offer you the best service and help you look great. Whether you want a classic hairstyle, a modern updo, or a simple refresh, we've got you covered. Make an appointment today and see for yourself!</p>
                                     <p>If you want to rate our barbers, please log in or register</p>
                                     <div style={{ display: 'flex', gap: '10px' }}>
                                         <Link to="/login" className="btn">Login</Link>
@@ -36,13 +38,16 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <button
-                    type="button"
-                    className="btn-play"
-                    onClick={openModal} 
-                >
-                    <span />
-                </button>
+
+                {!isAuthenticated && ( // Показва бутона само за неавтентикирани потребители
+                    <button
+                        type="button"
+                        className="btn-play"
+                        onClick={openModal} 
+                    >
+                        <span />
+                    </button>
+                )}
             </div>
 
             <VideoModal

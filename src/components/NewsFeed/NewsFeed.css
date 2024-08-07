@@ -1,0 +1,110 @@
+.news-feed {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-height: 380px; 
+    width: 600px;
+    overflow: hidden;
+}
+
+.news-feed h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.news-feed-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn-add-news, .btn-delete-last {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.btn-add-news {
+    background-color: #28a745;
+}
+
+.btn-add-news:hover {
+    background-color: #218838;
+}
+
+.btn-delete-last {
+    background-color: #dc3545;
+}
+
+.btn-delete-last:hover {
+    background-color: #c82333;
+}
+
+.news-feed-container {
+    overflow-y: auto;
+    max-height: 300px;
+    padding-right: 10px; 
+}
+
+.news-feed ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.news-item:last-child {
+    border-bottom: none;
+}
+
+.news-item h3 {
+    font-size: 20px;
+    color: #555;
+    margin: 0 0 10px;
+}
+
+.news-item p {
+    font-size: 16px;
+    color: #777;
+    margin: 0 0 5px;
+}
+
+.news-item span {
+    font-size: 14px;
+    color: #aaa;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

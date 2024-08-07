@@ -35,7 +35,7 @@ const CommentsComponent = ({ barberId }) => {
 
         try {
             const createdComment = await commentService.create(barberId, newComment.text, newComment.username);
-            console.log('Created comment:', createdComment); // Лог на създадения коментар
+            console.log('Created comment:', createdComment);
 
             await fetchComments();
             setError('');

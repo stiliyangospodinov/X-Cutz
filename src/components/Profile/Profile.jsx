@@ -1,9 +1,28 @@
-import AuthContext from "../../contexts/authContext";
-import { useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
+import { getProfile } from "../../services/profileService"; // Предполага се, че `getProfile` е в този файл
+
 
 export default function Profile() {
-  const { isAuthenticated, username, email, id } = useContext(AuthContext);
+  const { isAuthenticated, username, id } = useContext(AuthContext);
+  const [profileData, setProfileData] = useState(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const data = await getProfile();
+        setProfileData(data);
+      } catch (error) {
+        setError('Failed to fetch profile data');
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchProfileData();
+    }
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -29,24 +48,25 @@ export default function Profile() {
                   <div className="col-md-6">
                     <div className="team-item">
                       <div className="team-img">
-                        <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Team Image" />
+                        <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="Profile" />
                       </div>
                       <div className="team-text">
-                        <h2>{username}</h2>
-                        <p>{email}</p>
+                        <h2>{profileData?.username || username}</h2>
+                        <p>{profileData?.email || 'No email available'}</p>
                       </div>
                     </div>
                     <p>Profile</p>
                     {isAuthenticated && (
                       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Link className="btn" to={`/edit-profile/${id}`}>
-                          Edit
-                        </Link>
-                        <Link className="btn" to="/" style={{ marginLeft: '10px' }}>
+                        <Link className="btn" to='/'>
                           Home
+                        </Link>
+                        <Link className="btn" to="/logout" style={{ marginLeft: '10px' }}>
+                          Logout
                         </Link>
                       </div>
                     )}
+                    {error && <p className="text-danger">{error}</p>}
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const AdminGuard = () => {
     const { isAuthenticated, isAdmin } = useContext(AuthContext);
 
     if (!isAuthenticated && !isAdmin) {
-        return <Navigate to="/" />;
+        return <Navigate to="/login" />;
     }
 
     return <Outlet />;

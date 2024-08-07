@@ -16,11 +16,11 @@ import DeleteBarber from "./components/DeleteBarber/DeleteBarber";
 import Logout from "./components/Logout/Logout";
 import Profile from "./components/Profile/Profile";
 import { AuthProvider } from "./contexts/authContext";
-import EditProfile from "./components/EditProfile/EditProfile";
 import AuthGuard from "./guards/AuthGuard";
 import GuestGuard from "./guards/GuestGuard";
 import AdminGuard from "./guards/AdminGuard";
 import NotFound from "./components/404/NotFound";
+import CreateNews from "./components/CreateNews/CreateNews";
 
 function App() {
 
@@ -39,7 +39,6 @@ function App() {
                     <Route element={<AuthGuard />}>
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/edit-profile/:id" element={<EditProfile />} />
                     </Route>
                     <Route element={<GuestGuard />}>
                     <Route path="/login" element={<Login />} />
@@ -47,6 +46,7 @@ function App() {
                     </Route>
                     <Route element={<AdminGuard />} >
                     <Route path="/create" element={<CreateBarber />} />
+                    <Route path="/create-news" element={<CreateNews />} />
                     <Route path="/edit/:id" element={<EditBarber />} />
                     <Route path="/delete/:id" element={<DeleteBarber />} />
                    </Route>
