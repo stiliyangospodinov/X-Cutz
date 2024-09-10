@@ -6,7 +6,7 @@ export default function GuestGuard(props) {
     const { isAuthenticated } = useContext(AuthContext);
 
     if (isAuthenticated) {
-        return <Navigate to="/login" />;
+        return <Navigate to="/" />;
     }
 
     return <Outlet />;
