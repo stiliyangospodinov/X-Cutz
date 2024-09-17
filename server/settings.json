@@ -21,246 +21,68 @@
         "sessions": {}
     },
     "seedData": {
-        "barbers": {
-            "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
-                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-                "name": "Adam Phillips",
-                "title": "Master Barber",
-                "photo": "/img/team-1.jpg",
-                "description": "Adam is a highly skilled barber with over 10 years of experience. He specializes in classic and modern haircuts.",
-
+        "recipes": {
+            "3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Easy Lasagna",
+                "img": "assets/lasagna.jpg",
+                "ingredients": [
+                    "1 tbsp Ingredient 1",
+                    "2 cups Ingredient 2",
+                    "500 g  Ingredient 3",
+                    "25 g Ingredient 4"
+                ],
+                "steps": [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                "_createdOn": 1613551279012
             },
-            "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
-                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-                "name": "Dylan Adams",
-                "title": "Hair Expert",
-                "photo": "/img/team-2.jpg",
-                "description": "Dylan is a creative hair expert known for his unique styles and attention to detail. He has been a part of our team for 5 years.",
-
+            "8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "name": "Grilled Duck Fillet",
+                "img": "assets/roast.jpg",
+                "ingredients": [
+                    "500 g  Ingredient 1",
+                    "3 tbsp Ingredient 2",
+                    "2 cups Ingredient 3"
+                ],
+                "steps": [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                "_createdOn": 1613551344360
             },
-            "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
-                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-                "name": "Gloria Edwardson",
-                "title": "Beard Expert",
-                "photo": "/img/team-3.jpg",
-                "description": "Gloria is a beard expert with a passion for grooming and styling beards. She has been perfecting her craft for 7 years.",
-
-            },
-            "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s": {
-                "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-                "_id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
-                "name": "Josh Dunn",
-                "title": "Color Expert",
-                "photo": "/img/team-4.jpg",
-                "description": "Josh is a color expert who excels in creating vibrant and natural-looking hair colors. He has been in the industry for 8 years.",
-
+            "985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "name": "Roast Trout",
+                "img": "assets/fish.jpg",
+                "ingredients": [
+                    "4 cups Ingredient 1",
+                    "1 tbsp Ingredient 2",
+                    "1 tbsp Ingredient 3",
+                    "750 g  Ingredient 4",
+                    "25 g Ingredient 5"
+                ],
+                "steps": [
+                    "Prepare ingredients",
+                    "Mix ingredients",
+                    "Cook until done"
+                ],
+                "_createdOn": 1613551388703
             }
-        },
-        "news": {
-            "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
-              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-              "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-              "title": "New Barber Styles 2024",
-              "description": "Discover the trending barber styles for 2024 and be the first to rock the new looks.",
-              "date": "August 1, 2024"
-            },
-            "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
-              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-              "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-              "title": "Barber X Charity Event",
-              "description": "Join us for a charity event to support the local community. All proceeds will go to the local shelter.",
-              "date": "July 25, 2024"
-            },
-            "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
-              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
-              "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-              "title": "Customer of the Month",
-              "description": "Congratulations to John Doe for being our customer of the month. Enjoy a free haircut on us!",
-              "date": "July 20, 2024"
-            }
-          },
-        "services": {
-            "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
-              "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-              "title": "Hair Cut",
-              "description": "Detailed information about Hair Cut service.",
-              "img": "img/service-1.jpg",
-              "more": "Our hair cutting service provides a variety of styles from classic to modern. Our experienced stylists ensure a precise cut every time, tailored to your preferences."
-            },
-            "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
-              "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-              "title": "Beard Style",
-              "description": "Detailed information about Beard Style service.",
-              "img": "img/service-2.jpg",
-              "more": "Our beard styling service offers various trims and shapes to suit your face. Our experts use high-quality tools and products to maintain the health and look of your beard."
-            },
-            "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
-              "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-              "title": "Color & Wash",
-              "description": "Detailed information about Color & Wash service.",
-              "img": "img/service-3.jpg",
-              "more": "Our color and wash service includes a range of coloring techniques, from highlights to full color, using top-quality products. Each session is followed by a relaxing wash and style."
-            }
-          },
-       
-        "gallery":{
-            "1": {
-              "photo": "img/portfolio-1.jpg"
-            },
-            "2": {
-              "photo": "img/portfolio-2.jpg"
-            },
-            "3": {
-              "photo": "img/portfolio-3.jpg"
-            },
-            "4": {
-              "photo": "img/portfolio-4.jpg"
-            },
-            "5": {
-              "photo": "img/portfolio-5.jpg"
-            },
-            "6": {
-              "photo": "img/portfolio-6.jpg"
-            }
-          },
-
-        "prices":{
-
-                "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
-                  "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-                  "service": "Hair Cut",
-                  "price": "$9.99",
-                  "image": "img/price-1.jpg"
-                },
-                "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
-                  "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-                  "service": "Hair Wash",
-                  "price": "$10.99",
-                  "image": "img/price-2.jpg"
-                },
-                "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
-                  "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-                  "service": "Hair Color",
-                  "price": "$11.99",
-                  "image": "img/price-3.jpg"
-                },
-                "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s": {
-                  "_id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
-                  "service": "Hair Shave",
-                  "price": "$12.99",
-                  "image": "img/price-4.jpg"
-                },
-                "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t": {
-                  "_id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
-                  "service": "Hair Straight",
-                  "price": "$13.99",
-                  "image": "img/price-5.jpg"
-                },
-                "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u": {
-                  "_id": "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u",
-                  "service": "Facial",
-                  "price": "$14.99",
-                  "image": "img/price-6.jpg"
-                },
-                "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v": {
-                  "_id": "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
-                  "service": "Shampoo",
-                  "price": "$15.99",
-                  "image": "img/price-7.jpg"
-                },
-                "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w": {
-                  "_id": "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w",
-                  "service": "Beard Trim",
-                  "price": "$16.99",
-                  "image": "img/price-8.jpg"
-                },
-                "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x": {
-                  "_id": "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x",
-                  "service": "Beard Shave",
-                  "price": "$17.99",
-                  "image": "img/price-9.jpg"
-                },
-                "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y": {
-                  "_id": "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y",
-                  "service": "Wedding Cut",
-                  "price": "$18.99",
-                  "image": "img/price-10.jpg"
-                },
-                "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z": {
-                  "_id": "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z",
-                  "service": "Clean Up",
-                  "price": "$19.99",
-                  "image": "img/price-11.jpg"
-                },
-                "2l3m4n5o-6p7q-8r9s-0t1u-2v3w4x5y6z7a": {
-                  "_id": "2l3m4n5o-6p7q-8r9s-0t1u-2v3w4x5y6z7a",
-                  "service": "Massage",
-                  "price": "$20.99",
-                  "image": "img/price-12.jpg"
-                }
-
         },
         "comments": {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-              "text": "Great recipe!",
-              "barberId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-              "_createdOn": 1614260681375,
-              "_id": "0a272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "1b272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-              "text": "Awesome service!",
-              "barberId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-              "_createdOn": 1614260781375,
-              "_id": "1b272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "2c272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "45c62d76-8152-4626-8712-eeb96381bea8",
-              "text": "Not bad.",
-              "barberId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-              "_createdOn": 1614260881375,
-              "_id": "2c272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "3d272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-              "text": "Excellent job!",
-              "barberId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-              "_createdOn": 1614260981375,
-              "_id": "3d272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "4e272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-              "text": "Could be better.",
-              "barberId": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-              "_createdOn": 1614261081375,
-              "_id": "4e272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "5f272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "45c62d76-8152-4626-8712-eeb96381bea8",
-              "text": "Very happy with my beard!",
-              "barberId": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-              "_createdOn": 1614261181375,
-              "_id": "5f272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "6g272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-              "text": "Love the new color!",
-              "barberId": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
-              "_createdOn": 1614261281375,
-              "_id": "6g272c58-b7ea-4e09-a000-7ec988248f66"
-            },
-            "7h272c58-b7ea-4e09-a000-7ec988248f66": {
-              "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-              "text": "Great color service!",
-              "barberId": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
-              "_createdOn": 1614261381375,
-              "_id": "7h272c58-b7ea-4e09-a000-7ec988248f66"
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "content": "Great recipe!",
+                "recipeId": "8f414b4f-ab39-4d36-bedb-2ad69da9c830",
+                "_createdOn": 1614260681375,
+                "_id": "0a272c58-b7ea-4e09-a000-7ec988248f66"
             }
-          },
+        },
         "records": {
             "i01": {
                 "name": "John1",
