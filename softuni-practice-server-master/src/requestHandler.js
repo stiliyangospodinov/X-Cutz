@@ -108,8 +108,15 @@ async function parseRequest(req) {
         .split('&')
         .filter(s => s != '')
         .map(x => x.split('='))
-        .reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v) }), {});
-    const body = await parseBody(req);
+        .reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v.replace(/\+/g, " ")) }), {});
+
+    let body;
+    // If req stream has ended body has been parsed
+    if (req.readableEnded) {
+        body = req.body;
+    } else {
+        body = await parseBody(req);
+    }
 
     return {
         serviceName,

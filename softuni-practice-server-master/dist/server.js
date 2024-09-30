@@ -176,8 +176,15 @@
             .split('&')
             .filter(s => s != '')
             .map(x => x.split('='))
-            .reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v) }), {});
-        const body = await parseBody(req);
+            .reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v.replace(/\+/g, " ")) }), {});
+
+        let body;
+        // If req stream has ended body has been parsed
+        if (req.readableEnded) {
+            body = req.body;
+        } else {
+            body = await parseBody(req);
+        }
 
         return {
             serviceName,
@@ -1338,7 +1345,7 @@
     	sessions: {
     	}
     };
-    "seedData" = {
+    var seedData = {
         "barbers": {
             "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
@@ -1424,7 +1431,7 @@
             }
           },
        
-        "gallery":{
+        gallery:{
             "1": {
               "photo": "img/portfolio-1.jpg"
             },
@@ -1445,7 +1452,7 @@
             }
           },
 
-        "prices":{
+        prices:{
 
                 "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
                   "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
@@ -1521,6 +1528,59 @@
                 }
 
         },
+    	recipes: {
+    		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			name: "Easy Lasagna",
+    			img: "assets/lasagna.jpg",
+    			ingredients: [
+    				"1 tbsp Ingredient 1",
+    				"2 cups Ingredient 2",
+    				"500 g  Ingredient 3",
+    				"25 g Ingredient 4"
+    			],
+    			steps: [
+    				"Prepare ingredients",
+    				"Mix ingredients",
+    				"Cook until done"
+    			],
+    			_createdOn: 1613551279012
+    		},
+    		"8f414b4f-ab39-4d36-bedb-2ad69da9c830": {
+    			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+    			name: "Grilled Duck Fillet",
+    			img: "assets/roast.jpg",
+    			ingredients: [
+    				"500 g  Ingredient 1",
+    				"3 tbsp Ingredient 2",
+    				"2 cups Ingredient 3"
+    			],
+    			steps: [
+    				"Prepare ingredients",
+    				"Mix ingredients",
+    				"Cook until done"
+    			],
+    			_createdOn: 1613551344360
+    		},
+    		"985d9eab-ad2e-4622-a5c8-116261fb1fd2": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			name: "Roast Trout",
+    			img: "assets/fish.jpg",
+    			ingredients: [
+    				"4 cups Ingredient 1",
+    				"1 tbsp Ingredient 2",
+    				"1 tbsp Ingredient 3",
+    				"750 g  Ingredient 4",
+    				"25 g Ingredient 5"
+    			],
+    			steps: [
+    				"Prepare ingredients",
+    				"Mix ingredients",
+    				"Cook until done"
+    			],
+    			_createdOn: 1613551388703
+    		}
+    	},
         "comments": {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
               "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
@@ -1861,14 +1921,14 @@
     const server = http__default['default'].createServer(requestHandler(plugins, services));
 
     const port = 3030;
+
     server.listen(port);
+
     console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
     console.log(`Admin panel located at http://localhost:${port}/admin`);
 
-    var server_1 = {
+    var softuniPracticeServerMaster = server;
 
-    };
-
-    return server_1;
+    return softuniPracticeServerMaster;
 
 })));
