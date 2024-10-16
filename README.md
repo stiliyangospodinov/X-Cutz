@@ -1,97 +1,109 @@
 BarberX
 
-BarberX е ReactJS проект, създаден за демонстриране на основни умения в разработката на уеб приложения. Проектът използва практическия сървър на SoftUni за съхранение на данни и предоставяне на реална среда за работа.
-Съдържание
+BarberX is a ReactJS project created to demonstrate basic web application development skills. The project uses SoftUni’s practical server for data storage, providing a real working environment.
+Table of Contents
 
-    Описание
-    Функционалности
-    Технологии
-    Настройка на проекта
-    Използване
-    Разработчици
+    Description
+    Features
+    Technologies
+    Project Setup
+    Usage
+    Developers
 
-Описание
+Description
 
-BarberX е приложение, което демонстрира основни концепции в разработката на уеб приложения с React. То включва няколко страници и функции, които помагат за визуализиране на данни и взаимодействие с потребителите.
-Функционалности
+BarberX is an application that demonstrates core concepts in web application development using React. It includes several pages and features that help visualize data and interact with users.
+Features
 
-    Основна страница с преглед на информация
-    Разширен интерфейс за управление на данни
-    Интеграция с Firebase за съхранение на данни
-    Адаптивен дизайн за различни устройства
+    Main page with information overview
+    Advanced interface for data management
+    Firebase integration for data storage
+    Responsive design for various devices
 
-Технологии
+Technologies
 
-Проектът използва следните технологии:
+The project uses the following technologies:
 
-    React - JavaScript библиотека за изграждане на потребителски интерфейси
-    
-Настройка на проекта
+    React - A JavaScript library for building user interfaces.
 
-Клонирайте репозитория:
+Project Setup
 
-    git clone https://github.com/stiliyangospodinov/BarberX.git
+    Clone the repository:
 
-Отидете в директорията на проекта:
+    bash
 
-    cd BarberX-master
+git clone https://github.com/stiliyangospodinov/BarberX.git
 
-Инсталирайте необходимите зависимости:
+Navigate to the project directory:
 
-    npm install
+bash
 
-Отидете в директорията на сървъра:
+cd BarberX-master
 
-    cd BarberX-master/server
+Install the necessary dependencies:
 
-Инсталирайте необходимите зависимости:
+bash
 
-    npm install
-Отидете в директорията на dist:
+npm install
 
-    cd BarberX-master/server/dist
+Navigate to the server directory:
 
-Стартирайте сървъра и не затваряйте терминала:
+bash
 
-    node server js 
+cd BarberX-master/server
 
-Върнете се в директорията на проекта и отворете отделен терминал.
+Install the necessary server dependencies:
 
+bash
 
-Стартирайте приложението локално:
+npm install
 
-    npm run dev 
+Navigate to the dist directory:
 
-    Това ще стартира сървъра на локалния хост и можете да отворите приложението в браузъра си.
-    
-Използване
+bash
 
-След стартиране на приложението, можете да използвате навигационния панел, за да разгледате различните страници и функционалности. Приложението е проектирано да бъде интуитивно и лесно за използване.
+cd BarberX-master/server/dist
 
-Публична част
+Start the server and keep the terminal open:
 
-Публичната част на приложението предоставя ограничен достъп до основна информация за BarberX. Потребителите могат да разглеждат страницата с обща информация за барбър шопа, но нямат достъп до специфични услуги или възможност да пишат коментари.
-Потребителска част
+bash
 
-В потребителската част на приложението регистрираните потребители имат възможност да:
+node server.js
 
-    Четат новини, свързани с BarberX и сферата на фризьорските услуги.
-    Пишат и изтриват коментарите си към различните барбъри.
-    Виждат и разглеждат различни услуги, предлагани от барбър шопа.
+Return to the project root directory and open a new terminal.
 
-Админска част
+Start the application locally:
 
-Админската част предоставя пълен контрол върху съдържанието на приложението. Администраторите имат достъп до следните функционалности:
+bash
 
-    Добавяне на новини, редактиране на съществуващи или изтриване на стари новини.
-    Управление на барбъри – добавяне, редактиране и изтриване на  фризьорите.
+    npm run dev
 
-Това дава възможност за динамично управление на съдържанието и услугите в платформата.
+    This will launch the server on the local host, and you can open the application in your browser.
 
-Разработчици
+Usage
 
-Проектът е разработен от:
+After starting the application, you can use the navigation panel to explore different pages and functionalities. The app is designed to be intuitive and easy to use.
+Public Section
 
-    Стилиян Господинов
+The public section of the application provides limited access to basic information about BarberX. Users can browse the general information page for the barbershop, but they do not have access to specific services or the ability to post comments.
+User Section
 
+In the user section, registered users can:
 
+    Read news related to BarberX and the barbering industry.
+    Post and delete their comments on different barbers.
+    View and explore various services offered by the barbershop.
+
+Admin Section
+
+The admin section provides full control over the content of the application. Administrators have access to the following functionalities:
+
+    Add, edit, or delete news.
+    Manage barbers – add, edit, or remove barbers.
+
+This allows for dynamic management of content and services on the platform.
+Developers
+
+This project was developed by:
+
+    Stiliyan Gospodinov
