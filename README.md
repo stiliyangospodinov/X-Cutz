@@ -100,6 +100,8 @@ The admin section provides full control over the content of the application. Adm
 
     Add, edit, or delete news.
     Manage barbers – add, edit, or remove barbers.
+    username : admin@abv.bg
+    password: admin
 
 This allows for dynamic management of content and services on the platform.
 Developers
