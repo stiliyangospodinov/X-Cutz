@@ -21,7 +21,6 @@ export default function Footer() {
     } else {
       setIsSubmitted(true);
       setError("");
-      // You can add any additional logic here, like sending the email to a server
     }
   };
 
@@ -111,7 +110,7 @@ export default function Footer() {
         <div className="row">
           <div className="col-md-6">
             <p>
-              © <Link to="/">Your Site Name</Link>, All Rights Reserved.
+              © <Link to="/">Barber X</Link>, All Rights Reserved.
             </p>
           </div>
           <div className="col-md-6">
