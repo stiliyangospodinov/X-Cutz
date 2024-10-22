@@ -33,11 +33,21 @@ const NewsFeed = () => {
         const lastNews = newsItems[newsItems.length - 1];
         try {
             await deleteNews(lastNews._id);
-            dispatch({ type: 'REMOVE_LAST_NEWS' });
+            dispatch({ type: 'REMOVE_OLDEST_NEWS' });
             setError('');
         } catch (error) {
             console.error('Error deleting news:', error);
             setError('Failed to delete news.');
+        }
+    };
+
+    const handleAddNewsAtTop = async (newNewsItem) => {
+        try {
+            dispatch({ type: 'ADD_NEWS_AT_TOP', payload: newNewsItem });
+            setError('');
+        } catch (error) {
+            console.error('Error adding news:', error);
+            setError('Failed to add news.');
         }
     };
 
@@ -50,7 +60,7 @@ const NewsFeed = () => {
                         Add News
                     </Link>
                     <button className="btn-delete-last" onClick={handleDeleteLast}>
-                        Delete Last
+                        Delete oldest
                     </button>
                 </>
             )}
