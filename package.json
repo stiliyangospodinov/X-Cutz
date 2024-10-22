@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "main": "server.js",
-  "homepage": "https://stiliyangospodinov.github.io/BarberX",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
