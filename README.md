@@ -38,7 +38,7 @@ Navigate to the project directory:
 
 bash
 
-cd BarberX-master
+cd BarberX
 
 Install the necessary dependencies:
 
@@ -50,7 +50,7 @@ Navigate to the server directory:
 
 bash
 
-cd BarberX-master/server
+cd BarberX/server
 
 Install the necessary server dependencies:
 
@@ -62,7 +62,7 @@ Navigate to the dist directory:
 
 bash
 
-cd BarberX-master/server/dist
+cd BarberX/server/dist
 
 Start the server and keep the terminal open:
 
@@ -70,9 +70,11 @@ bash
 
 node server.js
 
-Return to the project root directory and open a new terminal.
+Open a new terminal and navigate to the server directory.
 
-Start the application locally:
+cd BarberX/server
+
+Start the application locally and keep the terminal open:
 
 bash
 
@@ -98,7 +100,7 @@ Admin Section
 
 The admin section provides full control over the content of the application. Administrators have access to the following functionalities:
 
-    Add, edit, or delete news.
+    Add or delete oldest news.
     Manage barbers – add, edit, or remove barbers.
     username : admin@abv.bg
     password: admin
