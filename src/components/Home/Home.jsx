@@ -17,12 +17,12 @@ export default function Home() {
                 <div className="row">
                     <div className="col-sm-12 col-md-6">
                         <div className="hero-text animated fadeInLeft">
-                            <h1>Welcome to the official site of Barber X!</h1>
+                            <h1>Welcome to the official site of X Cutz!</h1>
                             {isAuthenticated ? (
                                 <NewsFeed />
                             ) : (
                                 <>
-                                    <p>At Barber X, we believe that a good haircut can change your whole day. Our team of professional barbers are here to offer you the best service and help you look great. Whether you want a classic hairstyle, a modern updo, or a simple refresh, we've got you covered. Make an appointment today and see for yourself!</p>
+                                    <p>At X Cutz, we believe that a good haircut can change your whole day. Our team of professional barbers are here to offer you the best service and help you look great. Whether you want a classic hairstyle, a modern updo, or a simple refresh, we've got you covered. Make an appointment today and see for yourself!</p>
                                     <p>If you want to rate our barbers, please log in or register</p>
                                     <div style={{ display: 'flex', gap: '10px' }}>
                                         <Link to="/login" className="btn">Login</Link>
@@ -34,12 +34,12 @@ export default function Home() {
                     </div>
                     <div className="col-sm-12 col-md-6 d-none d-md-block">
                         <div className="hero-image">
-                            <img src="img/hero.png" alt="Hero Image" />
+                            <img src="img/ivan_works.png" alt="Hero Image" />
                         </div>
                     </div>
                 </div>
 
-                {!isAuthenticated && ( // Показва бутона само за неавтентикирани потребители
+                {!isAuthenticated && ( 
                     <button
                         type="button"
                         className="btn-play"

@@ -16,11 +16,11 @@ export default function Header() {
             <div className="col-md-6">
               <div className="top-bar-left">
                 <div className="text">
-                  <h2>8:00 - 9:00</h2>
+                  <h2>8:00 - 20:00</h2>
                   <p>Opening Hour Mon - Fri</p>
                 </div>
                 <div className="text">
-                  <h2>+123 456 7890</h2>
+                  <h2>+359 897 625 888</h2>
                   <p>Call Us For Appointment</p>
                 </div>
               </div>
@@ -49,7 +49,7 @@ export default function Header() {
       <div className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
-            Barber <span>X</span>
+            <span>X</span> CUTZ
           </Link>
           <button
             type="button"
@@ -74,7 +74,7 @@ export default function Header() {
                 Service
               </Link>
               <Link to="/prices" className="nav-item nav-link">
-                Price
+                Prices
               </Link>
               <Link to="/team" className="nav-item nav-link">
                 Barbers

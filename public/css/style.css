@@ -452,6 +452,10 @@ a:focus {
         font-weight: 400;
         letter-spacing: 0;
     }
+    .hero .btn-play{
+        display: none ;
+    }
+
 }
 
 @media (max-width: 575.98px) {

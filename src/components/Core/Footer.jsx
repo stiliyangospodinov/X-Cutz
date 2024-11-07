@@ -39,15 +39,15 @@ export default function Footer() {
                   <h2>Salon Address</h2>
                   <p>
                     <i className="fa fa-map-marker-alt" />
-                    123 Street, New York, USA
+                    Bregalnitsa 62, Varna, Bulgaria
                   </p>
                   <p>
                     <i className="fa fa-phone-alt" />
-                    +012 345 67890
+                    +359 897 625 888
                   </p>
                   <p>
                     <i className="fa fa-envelope" />
-                    info@example.com
+                    stelko095@gmail.com
                   </p>
                   <div className="footer-social">
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
@@ -110,7 +110,7 @@ export default function Footer() {
         <div className="row">
           <div className="col-md-6">
             <p>
-              © <Link to="/">Barber X</Link>, All Rights Reserved.
+              © <Link to="/">X Cutz</Link>, All Rights Reserved.
             </p>
           </div>
           <div className="col-md-6">

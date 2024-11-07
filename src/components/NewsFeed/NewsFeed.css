@@ -108,3 +108,62 @@
         transform: translateY(0);
     }
 }
+/* Mobile view (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .news-feed {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .btn-add-news, .btn-delete-last {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .news-feed h2 {
+        font-size: 22px;
+    }
+    
+    .news-item h3 {
+        font-size: 18px;
+    }
+
+    .news-item p {
+        font-size: 14px;
+    }
+}
+
+/* Mobile view (max-width: 767px) */
+@media (max-width: 767px) {
+    .news-feed {
+        width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+
+    .news-feed h2 {
+        font-size: 20px;
+    }
+
+    .btn-add-news, .btn-delete-last {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .news-feed-container {
+        max-height: 200px;
+    }
+
+    .news-item h3 {
+        font-size: 16px;
+    }
+
+    .news-item p {
+        font-size: 14px;
+    }
+
+    .news-item span {
+        font-size: 12px;
+    }
+}
