@@ -17,7 +17,7 @@ Features
 
     Main page with information overview
     Advanced interface for data management
-    Firebase integration for data storage
+    SoftUni practice server for data storage
     Responsive design for various devices
 
 Technologies
