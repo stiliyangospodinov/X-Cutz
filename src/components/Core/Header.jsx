@@ -1,12 +1,31 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 
 export default function Header() {
-  const {
-    isAuthenticated,
-    username,
-  } = useContext(AuthContext);
+  const { isAuthenticated, username } = useContext(AuthContext);
+
+  const handleClickOutside = (event) => {
+    const navbarCollapse = document.getElementById("navbarCollapse");
+    if (navbarCollapse && !navbarCollapse.contains(event.target)) {
+      navbarCollapse.classList.remove("show");
+    }
+  };
+  
+  const handleLinkClick = () => {
+    const navbarCollapse = document.getElementById("navbarCollapse");
+    if (navbarCollapse) {
+      navbarCollapse.classList.remove("show");
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -28,18 +47,10 @@ export default function Header() {
             <div className="col-md-6">
               <div className="top-bar-right">
                 <div className="social">
-                  <a href="http://twitter.com">
-                    <i className="fab fa-twitter" />
-                  </a>
-                  <a href="http://facebook.com">
-                    <i className="fab fa-facebook-f" />
-                  </a>
-                  <a href="http://linkedin.com">
-                    <i className="fab fa-linkedin-in" />
-                  </a>
-                  <a href="http://instagram.com">
-                    <i className="fab fa-instagram" />
-                  </a>
+                  <a href="http://twitter.com"><i className="fab fa-twitter" /></a>
+                  <a href="http://facebook.com"><i className="fab fa-facebook-f" /></a>
+                  <a href="http://linkedin.com"><i className="fab fa-linkedin-in" /></a>
+                  <a href="http://instagram.com"><i className="fab fa-instagram" /></a>
                 </div>
               </div>
             </div>
@@ -64,42 +75,26 @@ export default function Header() {
             id="navbarCollapse"
           >
             <div className="navbar-nav ml-auto">
-              <Link to="/" className="nav-item nav-link active">
-                Home
-              </Link>
-              <Link to="/about" className="nav-item nav-link">
-                About
-              </Link>
-              <Link to="/service" className="nav-item nav-link">
-                Service
-              </Link>
-              <Link to="/prices" className="nav-item nav-link">
-                Prices
-              </Link>
-              <Link to="/team" className="nav-item nav-link">
-                Barbers
-              </Link>
-              <Link to="/gallery" className="nav-item nav-link">
-                Gallery
-              </Link>
+              <Link to="/" className="nav-item nav-link active"onClick={handleLinkClick}>Home</Link>
+              <Link to="/about" className="nav-item nav-link"onClick={handleLinkClick}>About</Link>
+              <Link to="/service" className="nav-item nav-link"onClick={handleLinkClick}>Service</Link>
+              <Link to="/prices" className="nav-item nav-link"onClick={handleLinkClick}>Prices</Link>
+              <Link to="/team" className="nav-item nav-link"onClick={handleLinkClick}>Barbers</Link>
+              <Link to="/gallery" className="nav-item nav-link"onClick={handleLinkClick}>Gallery</Link>
 
               {isAuthenticated && (
                 <>
-                  <Link to="/profile" className="nav-item nav-link">{username}'s Profile</Link>
-                  <Link to="/logout" className="nav-item nav-link">
-                    Logout
+                  <Link to="/profile" className="nav-item nav-link"onClick={handleLinkClick}>
+                    {username}'s Profile
                   </Link>
+                  <Link to="/logout" className="nav-item nav-link"onClick={handleLinkClick}>Logout</Link>
                 </>
               )}
 
               {!isAuthenticated && (
                 <>
-                  <Link to="/login" className="nav-item nav-link">
-                    Login
-                  </Link>
-                  <Link to="/register" className="nav-item nav-link">
-                    Register
-                  </Link>
+                  <Link to="/login" className="nav-item nav-link"onClick={handleLinkClick}>Login</Link>
+                  <Link to="/register" className="nav-item nav-link"onClick={handleLinkClick}>Register</Link>
                 </>
               )}
             </div>
