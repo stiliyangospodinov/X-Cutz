@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
-import { getProfile } from "../../services/profileService"; // Предполага се, че `getProfile` е в този файл
-
+import { getProfile } from "../../services/profileService"; 
 
 export default function Profile() {
-  const { isAuthenticated, username, id } = useContext(AuthContext);
+  const { isAuthenticated, username } = useContext(AuthContext);
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState('');
 

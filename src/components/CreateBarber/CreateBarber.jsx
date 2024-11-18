@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { createBarber } from '../../services/barberShopService';
 import { Link, useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 
 const CreateBarber = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const formData = Object.fromEntries(new FormData(event.currentTarget));
-
+    const { values, onChange, onSubmit } = useForm(async (formData) => {
         try {
             await createBarber(formData);
             setSuccessMessage('Barber created successfully!');
@@ -19,7 +17,7 @@ const CreateBarber = () => {
             setErrorMessage('Error creating barber. Please try again.');
             console.error('Error creating barber:', error);
         }
-    };
+    }, { name: '', title: '', photo: '', description: '' });
 
     return (
         <div>
@@ -43,18 +41,49 @@ const CreateBarber = () => {
                         <div className="contact-form">
                             {errorMessage && <p className="text-danger">{errorMessage}</p>}
                             {successMessage && <p className="text-success">{successMessage}</p>}
-                            <form id="contactForm" onSubmit={handleSubmit}>
+                            <form id="contactForm" onSubmit={onSubmit}>
                                 <div className="control-group">
-                                    <input type="text" className="form-control" name="name" placeholder="Name" required />
+                                    <input 
+                                        type="text" 
+                                        className="form-control" 
+                                        name="name" 
+                                        placeholder="Name" 
+                                        value={values.name} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div className="control-group">
-                                    <input type="text" className="form-control" name="title" placeholder="Title" required />
+                                    <input 
+                                        type="text" 
+                                        className="form-control" 
+                                        name="title" 
+                                        placeholder="Title" 
+                                        value={values.title} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div className="control-group">
-                                    <input type="text" className="form-control" name="photo" placeholder="Image URL" required />
+                                    <input 
+                                        type="text" 
+                                        className="form-control" 
+                                        name="photo" 
+                                        placeholder="Image URL" 
+                                        value={values.photo} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div className="control-group">
-                                    <textarea className="form-control" name="description" placeholder="Description" required />
+                                    <textarea 
+                                        className="form-control" 
+                                        name="description" 
+                                        placeholder="Description" 
+                                        value={values.description} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div>
                                     <button className="btn" type="submit">Create</button>

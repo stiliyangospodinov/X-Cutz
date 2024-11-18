@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getBarberById, updateBarber } from '../../services/barberShopService';
+import useForm from '../../hooks/useForm';
 
 const EditBarber = () => {
     const { id } = useParams();
@@ -13,6 +14,7 @@ const EditBarber = () => {
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const {values, onChange } = useForm();
 
     useEffect(() => {
         const fetchBarber = async () => {
@@ -78,7 +80,7 @@ const EditBarber = () => {
                                         name="name"
                                         placeholder="Name"
                                         value={barber.name}
-                                        onChange={handleChange}
+                                        onChange={onChange}
                                         required
                                     />
                                 </div>
@@ -89,7 +91,7 @@ const EditBarber = () => {
                                         name="title"
                                         placeholder="Title"
                                         value={barber.title}
-                                        onChange={handleChange}
+                                        onChange={onChange}
                                         required
                                     />
                                 </div>
@@ -100,7 +102,7 @@ const EditBarber = () => {
                                         name="photo"
                                         placeholder="Image URL"
                                         value={barber.photo}
-                                        onChange={handleChange}
+                                        onChange={onChange}
                                         required
                                     />
                                 </div>
@@ -110,7 +112,7 @@ const EditBarber = () => {
                                         name="description"
                                         placeholder="Description"
                                         value={barber.description}
-                                        onChange={handleChange}
+                                        onChange={onChange}
                                         required
                                     />
                                 </div>

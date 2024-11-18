@@ -8,13 +8,14 @@ const LoginFormKeys = {
     Email: 'email',
     Password: 'password',
 };
+const initialValues = {
+    [LoginFormKeys.Email]: '',
+    [LoginFormKeys.Password]: '',
+}
 
 export default function Login() {
     const { loginSubmitHandler, authError } = useContext(AuthContext);
-    const { values, onChange } = useForm(loginSubmitHandler, {
-        [LoginFormKeys.Email]: '',
-        [LoginFormKeys.Password]: '',
-    });
+    const { values, onChange } = useForm(loginSubmitHandler,initialValues );
 
     const [validationErrors, setValidationErrors] = useState({});
 

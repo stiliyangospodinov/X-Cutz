@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import validateForm from "../../utils/registerValidations";
+import useForm from "../../hooks/useForm";
 
 export default function Register() {
     const RegisterFormKeys = {
@@ -10,30 +11,25 @@ export default function Register() {
         Password: "password",
         ConfirmPassword: "re-password",
     };
-
-    const { registerSubmitHandler, authError } = useContext(AuthContext);
-    const [values, setValues] = useState({
+    const initialValues = {
         [RegisterFormKeys.Email]: '',
         [RegisterFormKeys.Username]: '',
         [RegisterFormKeys.Password]: '',
-        [RegisterFormKeys.ConfirmPassword]: '',
-    });
-    const [errors, setErrors] = useState({});
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setValues(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
+        [RegisterFormKeys.ConfirmPassword]: ''
+      };
+      
+    const { registerSubmitHandler, authError } = useContext(AuthContext);
+    
+    const { values, onChange, onSubmit } = useForm((values) => {
         const validationErrors = validateForm(values);
         if (Object.keys(validationErrors).length === 0) {
             registerSubmitHandler(values);
         } else {
             setErrors(validationErrors);
         }
-    };
+    }, initialValues);
+      
+    const [errors, setErrors] = useState({});
 
     return (
         <div>
@@ -57,7 +53,7 @@ export default function Register() {
                             <div className="col-md-4" />
                             <div className="col-md-8">
                                 <div className="contact-form">
-                                    <form onSubmit={handleSubmit} noValidate>
+                                    <form onSubmit={onSubmit} noValidate>
                                         <div className="control-group">
                                             <input
                                                 type="text"
@@ -66,7 +62,7 @@ export default function Register() {
                                                 name={RegisterFormKeys.Username}
                                                 placeholder="Username"
                                                 required
-                                                onChange={handleChange}
+                                                onChange={onChange}
                                                 value={values[RegisterFormKeys.Username]}
                                             />
                                             {errors.username && <p className="help-block text-danger">{errors.username}</p>}
@@ -79,7 +75,7 @@ export default function Register() {
                                                 name={RegisterFormKeys.Email}
                                                 placeholder="Email"
                                                 required
-                                                onChange={handleChange}
+                                                onChange={onChange}
                                                 value={values[RegisterFormKeys.Email]}
                                             />
                                             {errors.email && <p className="help-block text-danger">{errors.email}</p>}
@@ -92,7 +88,7 @@ export default function Register() {
                                                 name={RegisterFormKeys.Password}
                                                 placeholder="Password"
                                                 required
-                                                onChange={handleChange}
+                                                onChange={onChange}
                                                 value={values[RegisterFormKeys.Password]}
                                             />
                                             {errors.password && <p className="help-block text-danger">{errors.password}</p>}
@@ -105,7 +101,7 @@ export default function Register() {
                                                 name={RegisterFormKeys.ConfirmPassword}
                                                 placeholder="Repeat Password"
                                                 required
-                                                onChange={handleChange}
+                                                onChange={onChange}
                                                 value={values[RegisterFormKeys.ConfirmPassword]}
                                             />
                                             {errors[RegisterFormKeys.ConfirmPassword] && <p className="help-block text-danger">{errors[RegisterFormKeys.ConfirmPassword]}</p>}

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllServices } from '../../services/barberShopService';
 import Modal from '../Shared/Modals/Modal/Modal';
-import LogRegSection from '../Shared/LogRegSection/LogRegSection';  // Импортирайте новия компонент
+import LogRegSection from '../Shared/LogRegSection/LogRegSection'; 
 
 import AuthContext from '../../contexts/authContext';
 

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { createNews } from '../../services/newsService'; 
 import { Link, useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+import { newsReducer } from '../NewsFeed/newsReducer';
+import { useReducer } from 'react';
 
 const formatDate = (date) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -10,26 +13,23 @@ const formatDate = (date) => {
 const CreateNews = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
+    const [newsItems, dispatch] = useReducer(newsReducer, []);
     const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const formData = Object.fromEntries(new FormData(event.currentTarget));
+    const { values, onChange, onSubmit } = useForm(async (values) => {
         const currentDate = formatDate(new Date());
-        const newsData = {
-            ...formData,
-            date: currentDate
-        };
+        const newsData = { ...values, date: currentDate };
 
         try {
             await createNews(newsData);
+            dispatch({ type: 'ADD_NEWS_AT_TOP', payload: newsData });
             setSuccessMessage('News created successfully!');
             navigate('/');
         } catch (error) {
             setErrorMessage('Error creating news. Please try again.');
             console.error('Error creating news:', error);
         }
-    };
+    }, { title: '', description: '' });
 
     return (
         <div>
@@ -53,12 +53,27 @@ const CreateNews = () => {
                         <div className="contact-form">
                             {errorMessage && <p className="text-danger">{errorMessage}</p>}
                             {successMessage && <p className="text-success">{successMessage}</p>}
-                            <form id="newsForm" onSubmit={handleSubmit}>
+                            <form id="newsForm" onSubmit={onSubmit}>
                                 <div className="control-group">
-                                    <input type="text" className="form-control" name="title" placeholder="Title" required />
+                                    <input 
+                                        type="text" 
+                                        className="form-control" 
+                                        name="title" 
+                                        placeholder="Title" 
+                                        value={values.title} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div className="control-group">
-                                    <textarea className="form-control" name="description" placeholder="Description" required />
+                                    <textarea 
+                                        className="form-control" 
+                                        name="description" 
+                                        placeholder="Description" 
+                                        value={values.description} 
+                                        onChange={onChange} 
+                                        required 
+                                    />
                                 </div>
                                 <div>
                                     <button className="btn" type="submit">Create</button>
