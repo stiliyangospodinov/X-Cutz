@@ -6,20 +6,23 @@ import { newsReducer } from './newsReducer';
 import { Link } from 'react-router-dom';
 
 const NewsFeed = () => {
-    const { user, isAdmin } = useContext(AuthContext);
+    const { isAdmin } = useContext(AuthContext);
     const [newsItems, dispatch] = useReducer(newsReducer, []);
     const [error, setError] = useState('');
 
     const fetchNews = async () => {
         try {
             const newsData = await getAllNews();
-            dispatch({ type: 'SET_NEWS', payload: newsData || [] });
+            if (newsData && Array.isArray(newsData)) {
+                dispatch({ type: 'SET_NEWS', payload: newsData });
+            } else {
+                setError('No news data available.');
+            }
         } catch (error) {
             console.error('Error fetching news:', error);
             setError('Failed to load news.');
         }
     };
-
     useEffect(() => {
         fetchNews();
     }, []);
@@ -40,17 +43,7 @@ const NewsFeed = () => {
             setError('Failed to delete news.');
         }
     };
-
-    const handleAddNewsAtTop = async (newNewsItem) => {
-        try {
-            dispatch({ type: 'ADD_NEWS_AT_TOP', payload: newNewsItem });
-            setError('');
-        } catch (error) {
-            console.error('Error adding news:', error);
-            setError('Failed to add news.');
-        }
-    };
-
+    
     return (
         <div className="news-feed">
             <h2>Latest News</h2>

@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { createNews } from '../../services/newsService'; 
 import { Link, useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
-import { newsReducer } from '../NewsFeed/newsReducer';
-import { useReducer } from 'react';
 
 const formatDate = (date) => {
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Intl.DateTimeFormat('en-US', options).format(date);
+    return new Date(date).toISOString();
 };
 
 const CreateNews = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const [newsItems, dispatch] = useReducer(newsReducer, []);
     const navigate = useNavigate();
 
     const initialValues = { title: '', description: '' };
@@ -24,7 +20,6 @@ const CreateNews = () => {
 
         try {
             await createNews(newsData);
-            dispatch({ type: 'ADD_NEWS_AT_TOP', payload: newsData });
             setSuccessMessage('News created successfully!');
             navigate('/');
         } catch (error) {
