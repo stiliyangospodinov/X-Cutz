@@ -16,21 +16,23 @@ export default function Register() {
         [RegisterFormKeys.Username]: '',
         [RegisterFormKeys.Password]: '',
         [RegisterFormKeys.ConfirmPassword]: ''
-      };
-      
+    };
+
     const { registerSubmitHandler, authError } = useContext(AuthContext);
-    
-    const { values, onChange, onSubmit } = useForm((values) => {
+
+    const [errors, setErrors] = useState({});
+
+    const submitHandler = (values) => {
         const validationErrors = validateForm(values);
         if (Object.keys(validationErrors).length === 0) {
             registerSubmitHandler(values);
         } else {
             setErrors(validationErrors);
         }
-    }, initialValues);
-      
-    const [errors, setErrors] = useState({});
+    };
 
+    const { values, onChange, onSubmit } = useForm(submitHandler, initialValues);
+    
     return (
         <div>
             <div className="page-header">

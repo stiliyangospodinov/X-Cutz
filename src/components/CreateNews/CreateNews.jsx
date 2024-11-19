@@ -16,7 +16,9 @@ const CreateNews = () => {
     const [newsItems, dispatch] = useReducer(newsReducer, []);
     const navigate = useNavigate();
 
-    const { values, onChange, onSubmit } = useForm(async (values) => {
+    const initialValues = { title: '', description: '' };
+
+    const submitHandler = async (values) => {
         const currentDate = formatDate(new Date());
         const newsData = { ...values, date: currentDate };
 
@@ -29,7 +31,9 @@ const CreateNews = () => {
             setErrorMessage('Error creating news. Please try again.');
             console.error('Error creating news:', error);
         }
-    }, { title: '', description: '' });
+    };
+
+    const { values, onChange, onSubmit } = useForm(submitHandler, initialValues);
 
     return (
         <div>

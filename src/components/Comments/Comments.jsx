@@ -3,8 +3,8 @@ import * as commentService from '../../services/commentService';
 import AuthContext from '../../contexts/authContext';
 import reducer from './commentReducer'; 
 import useForm from '../../hooks/useForm';
-import LogRegSection from '../Shared/LogRegSection/LogRegSection'; // Импорт на новия компонент
-import './comments.css'; // Импортиране на стиловете
+import LogRegSection from '../Shared/LogRegSection/LogRegSection'; 
+import './comments.css';
 
 const CommentsComponent = ({ barberId }) => {
     const { username, isAuthenticated } = useContext(AuthContext);

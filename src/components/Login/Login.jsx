@@ -15,19 +15,21 @@ const initialValues = {
 
 export default function Login() {
     const { loginSubmitHandler, authError } = useContext(AuthContext);
-    const { values, onChange } = useForm(loginSubmitHandler,initialValues );
-
+    
     const [validationErrors, setValidationErrors] = useState({});
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    
+    const handleSubmit = (event) => {
+        if (event && event.preventDefault) {
+            event.preventDefault();
+        }
         const validationErrors = validateForm(values);
         setValidationErrors(validationErrors);
-
+        
         if (Object.keys(validationErrors).length === 0) {
             loginSubmitHandler(values);
         }
     };
+    const { values, onChange, onSubmit } = useForm(handleSubmit,initialValues );
 
     return (
         <div>
@@ -51,7 +53,7 @@ export default function Login() {
                             <div className="col-md-4" />
                             <div className="col-md-8">
                                 <div className="contact-form">
-                                    <form name="sentMessage" id="contactForm" onSubmit={handleSubmit} noValidate="novalidate">
+                                    <form name="sentMessage" id="contactForm" onSubmit={onSubmit} noValidate="novalidate">
                                         <div className="control-group">
                                             <input
                                                 type="email"

@@ -3,21 +3,24 @@ import { createBarber } from '../../services/barberShopService';
 import { Link, useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 
+const initialValues = { name: '', title: '', photo: '', description: '' };
+
 const CreateBarber = () => {
-    const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
+    const [message, setMessage] = useState({ type: '', text: '' });
     const navigate = useNavigate();
 
-    const { values, onChange, onSubmit } = useForm(async (formData) => {
+    const submitHandler = async (formData) => {
         try {
             await createBarber(formData);
-            setSuccessMessage('Barber created successfully!');
+            setMessage({ type: 'success', text: 'Barber created successfully!' });
             navigate('/team');
         } catch (error) {
-            setErrorMessage('Error creating barber. Please try again.');
+            setMessage({ type: 'error', text: 'Error creating barber. Please try again.' });
             console.error('Error creating barber:', error);
         }
-    }, { name: '', title: '', photo: '', description: '' });
+    };
+
+    const { values, onChange, onSubmit } = useForm(submitHandler, initialValues);
 
     return (
         <div>
@@ -39,50 +42,53 @@ const CreateBarber = () => {
                     <div className="align-items-center">
                         <div className="col-md-4" />
                         <div className="contact-form">
-                            {errorMessage && <p className="text-danger">{errorMessage}</p>}
-                            {successMessage && <p className="text-success">{successMessage}</p>}
-                            <form id="contactForm" onSubmit={onSubmit}>
+                            {message.text && (
+                                <p className={message.type === 'error' ? 'text-danger' : 'text-success'}>
+                                    {message.text}
+                                </p>
+                            )}
+                            <form id="createBarberForm" onSubmit={onSubmit}>
                                 <div className="control-group">
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        name="name" 
-                                        placeholder="Name" 
-                                        value={values.name} 
-                                        onChange={onChange} 
-                                        required 
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="name"
+                                        placeholder="Name"
+                                        value={values.name}
+                                        onChange={onChange}
+                                        required
                                     />
                                 </div>
                                 <div className="control-group">
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        name="title" 
-                                        placeholder="Title" 
-                                        value={values.title} 
-                                        onChange={onChange} 
-                                        required 
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="title"
+                                        placeholder="Title"
+                                        value={values.title}
+                                        onChange={onChange}
+                                        required
                                     />
                                 </div>
                                 <div className="control-group">
-                                    <input 
-                                        type="text" 
-                                        className="form-control" 
-                                        name="photo" 
-                                        placeholder="Image URL" 
-                                        value={values.photo} 
-                                        onChange={onChange} 
-                                        required 
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        name="photo"
+                                        placeholder="Image URL"
+                                        value={values.photo}
+                                        onChange={onChange}
+                                        required
                                     />
                                 </div>
                                 <div className="control-group">
-                                    <textarea 
-                                        className="form-control" 
-                                        name="description" 
-                                        placeholder="Description" 
-                                        value={values.description} 
-                                        onChange={onChange} 
-                                        required 
+                                    <textarea
+                                        className="form-control"
+                                        name="description"
+                                        placeholder="Description"
+                                        value={values.description}
+                                        onChange={onChange}
+                                        required
                                     />
                                 </div>
                                 <div>

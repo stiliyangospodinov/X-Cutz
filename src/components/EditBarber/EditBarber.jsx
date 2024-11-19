@@ -6,42 +6,14 @@ import useForm from '../../hooks/useForm';
 const EditBarber = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [barber, setBarber] = useState({
-        name: '',
-        title: '',
-        photo: '',
-        description: ''
-    });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
-    const {values, onChange } = useForm();
 
-    useEffect(() => {
-        const fetchBarber = async () => {
-            try {
-                const data = await getBarberById(id);
-                setBarber(data);
-            } catch (error) {
-                setErrorMessage('Error fetching barber details');
-                console.error('Error fetching barber:', error);
-            }
-        };
+    const initialValues = { name: '', title: '', photo: '', description: '' };
 
-        fetchBarber();
-    }, [id]);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setBarber((prevBarber) => ({
-            ...prevBarber,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleSubmit = async (formData) => {
         try {
-            await updateBarber(id, barber);
+            await updateBarber(id, formData);
             setSuccessMessage('Barber updated successfully!');
             navigate(`/barber/${id}`);
         } catch (error) {
@@ -49,6 +21,22 @@ const EditBarber = () => {
             console.error('Error updating barber:', error);
         }
     };
+
+    const { values, onChange, onSubmit, setValues } = useForm(handleSubmit, initialValues);
+
+    useEffect(() => {
+        const fetchBarber = async () => {
+            try {
+                const data = await getBarberById(id);
+                setValues(data); 
+            } catch (error) {
+                setErrorMessage('Error fetching barber details');
+                console.error('Error fetching barber:', error);
+            }
+        };
+
+        fetchBarber();
+    }, [id, setValues]);
 
     return (
         <div>
@@ -72,14 +60,14 @@ const EditBarber = () => {
                         <div className="contact-form">
                             {errorMessage && <p className="text-danger">{errorMessage}</p>}
                             {successMessage && <p className="text-success">{successMessage}</p>}
-                            <form id="contactForm" onSubmit={handleSubmit}>
+                            <form id="contactForm" onSubmit={onSubmit}>
                                 <div className="control-group">
                                     <input
                                         type="text"
                                         className="form-control"
                                         name="name"
                                         placeholder="Name"
-                                        value={barber.name}
+                                        value={values.name}
                                         onChange={onChange}
                                         required
                                     />
@@ -90,7 +78,7 @@ const EditBarber = () => {
                                         className="form-control"
                                         name="title"
                                         placeholder="Title"
-                                        value={barber.title}
+                                        value={values.title}
                                         onChange={onChange}
                                         required
                                     />
@@ -101,7 +89,7 @@ const EditBarber = () => {
                                         className="form-control"
                                         name="photo"
                                         placeholder="Image URL"
-                                        value={barber.photo}
+                                        value={values.photo}
                                         onChange={onChange}
                                         required
                                     />
@@ -111,7 +99,7 @@ const EditBarber = () => {
                                         className="form-control"
                                         name="description"
                                         placeholder="Description"
-                                        value={barber.description}
+                                        value={values.description}
                                         onChange={onChange}
                                         required
                                     />
