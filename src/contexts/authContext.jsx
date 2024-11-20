@@ -2,9 +2,11 @@ import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as authService from "../services/authService";
 import Paths from "../paths";
+import { saveAuthData, clearAuthData, getAuthData } from "../utils/authUtils";
 
 const AuthContext = createContext();
 AuthContext.displayName = "AuthContext";
+
 const ADMIN_ID = '60f0cf0b-34b0-4abd-9769-8c42f830dffc';
 
 const isAdmin = (userId) => userId === ADMIN_ID;
@@ -20,66 +22,57 @@ export const AuthProvider = ({ children }) => {
     const [authError, setAuthError] = useState('');
 
     useEffect(() => {
-        const accessToken = localStorage.getItem('accessToken');
-        const username = localStorage.getItem('username');
-
-        if (accessToken && username) {
+        const savedAuthData = getAuthData();
+        if (savedAuthData) {
             setAuth({
-                accessToken,
-                username,
-                isAdmin: isAdmin(localStorage.getItem('userId')) 
+                ...savedAuthData,
+                isAdmin: isAdmin(savedAuthData.userId),
             });
         }
     }, []);
 
-    const clearAuth = () => {
-        setAuth({
-            accessToken: null,
-            username: null,
-            isAdmin: false
-        });
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('username');
+    const handleAuthSuccess = (result) => {
+        const authData = {
+            accessToken: result.accessToken,
+            username: result.username,
+            userId: result._id,
+            isAdmin: isAdmin(result._id),
+        };
+        setAuth(authData);
+        saveAuthData(authData); 
+        setAuthError(null);
+        navigate(Paths.Home);
     };
 
     const loginSubmitHandler = async (values) => {
         try {
             const result = await authService.loginUser(values.email, values.password);
-            setAuth({
-                accessToken: result.accessToken,
-                username: result.username,
-                isAdmin: isAdmin(result._id)
-            });
-            localStorage.setItem('accessToken', result.accessToken);
-            localStorage.setItem('username', result.username);
-            localStorage.setItem('userId', result._id); // Still needed for isAdmin check
-            setAuthError(null); 
-            navigate(Paths.Home);
+            handleAuthSuccess(result);
         } catch (error) {
-            setAuthError(error.message || "Login failed");
+            setAuthError(error.message || "Login failed. Please try again.");
         }
     };
 
     const registerSubmitHandler = async (values) => {
         try {
-            const result = await authService.registerUser(values.email, values.password, values.username);
-            setAuth({
-                accessToken: result.accessToken,
-                username: result.username,
-                isAdmin: isAdmin(result._id)
-            });
-            localStorage.setItem('accessToken', result.accessToken);
-            localStorage.setItem('username', result.username);
-            localStorage.setItem('userId', result._id); // Still needed for isAdmin check
-            setAuthError(null); 
-            navigate(Paths.Home);
+            const result = await authService.registerUser(
+                values.email,
+                values.password,
+                values.username
+            );
+            handleAuthSuccess(result);
         } catch (error) {
-            setAuthError(error.message || "A user with the same email already exists");
+            setAuthError(error.message || "A user with the same email already exists. Please try again.");
         }
     };
 
     const logoutHandler = () => {
-        clearAuth();
+        clearAuthData();
+        setAuth({
+            accessToken: null,
+            username: null,
+            isAdmin: false,
+        });
         navigate(Paths.Home);
     };
 
@@ -100,5 +93,4 @@ export const AuthProvider = ({ children }) => {
     );
 };
 
-export { isAdmin };
 export default AuthContext;
