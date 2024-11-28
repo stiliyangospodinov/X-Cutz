@@ -23,6 +23,7 @@ import NotFound from "./components/404/NotFound";
 import CreateNews from "./components/CreateNews/CreateNews";
 import Products from "./components/Products/Products";
 import AboutCard from "./components/Cards/AboutCard.jsx/AboutCard";
+import ProductDetails from "./components/ProductDetails/ProductDetails";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/prices" element={<Price />} />
                     <Route path="/products" element={<Products />} />
+                    <Route path="/products/:id" element={<ProductDetails />} />
                     <Route path="/team" element={<Barber />} />
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />

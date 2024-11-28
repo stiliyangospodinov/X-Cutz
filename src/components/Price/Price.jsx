@@ -10,7 +10,7 @@ export default function Price (){
     barberShopService.getAllPrices()
       .then(result => setPrices(result));
   }, []);
-  
+
     return (
       <div>
       <div className="page-header">
@@ -34,12 +34,14 @@ export default function Price (){
           </div>
           <div className="row">
           {prices.map(price => (
+            <div className="col-lg-3 col-md-4 col-sm-6">
             <PriceCard
             key={price._id}
             service = {price.service}
             price={price.price}
             image={price.image}
             />
+            </div>
           ))}
           </div>
         </div>

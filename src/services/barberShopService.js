@@ -32,6 +32,14 @@ export const getAllBarbers = async () => {
         }
     
 }
+export const getProductById = async (id) => {
+    try {
+        const result = await request.get(`${baseUrl}/products/${id}`);
+        return result;
+    } catch (error) {
+        console.log('Error fetching product', error);
+    }
+};
 
     export const getAllPictures = async () => {
         try {

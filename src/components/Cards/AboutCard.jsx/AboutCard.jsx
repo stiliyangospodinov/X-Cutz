@@ -37,10 +37,7 @@ export default function AboutCard({
           </div>
           <div className="col-sm-offset-1 col-sm-5">
             <div className="single-about-img">
-              <img
-                src={image}
-                alt="profile_image"
-              />
+            <img src={`/${image}`} alt="profile_image" />
             </div>
           </div>
         </div>

@@ -1533,57 +1533,76 @@
                 "_id": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
                 "name": "Hair Clipper",
                 "price": "49.99 lv",
-                "image": "img/product-1.png"
+                "image": "img/product-1.png",
+                "title": "Professional Hair Clipper",
+                "description": "Engineered for precision, this hair clipper features ultra-sharp blades and adjustable settings. Perfect for home or salon use, it ensures an even, professional-grade haircut every time. Lightweight design for ease of use."
             },
             "b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7": {
                 "_id": "b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7",
                 "name": "Shaver",
                 "price": "29.99 lv",
-                "image": "img/product-2.jpg"
+                "image": "img/product-2.jpg",
+                "title": "Electric Shaver",
+                "description": "This high-performance electric shaver is designed for a smooth and irritation-free shaving experience. Its ergonomic grip and advanced blades glide effortlessly over skin, providing a close and comfortable shave."
             },
             "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r8": {
                 "_id": "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r8",
                 "name": "Trimmer",
                 "price": "39.99 lv",
-                "image": "img/product-3.png"
+                "image": "img/product-3.png",
+                "title": "Multi-Use Trimmer",
+                "description": "Versatile and powerful, this trimmer is ideal for shaping beards, mustaches, and hairlines. Featuring multiple attachments and long battery life, it’s a must-have grooming tool for every man."
             },
             "d4e5f6g7-h8i9-0j1k-2l3m-4n5o6p7q8r9s": {
                 "_id": "d4e5f6g7-h8i9-0j1k-2l3m-4n5o6p7q8r9s",
                 "name": "Scissors",
                 "price": "19.99 lv",
-                "image": "img/product-4.jpg"
+                "image": "img/product-4.jpg",
+                "title": "Professional Scissors",
+                "description": "Crafted with precision, these scissors are designed for effortless cutting and styling. Their durable stainless-steel construction ensures long-lasting sharpness and reliability for both professionals and amateurs."
             },
             "e5f6g7h8-i9j0-1k2l-3m4n-5o6p7q8r9s0t": {
                 "_id": "e5f6g7h8-i9j0-1k2l-3m4n-5o6p7q8r9s0t",
                 "name": "Beard Oil",
                 "price": "15.99 lv",
-                "image": "img/product-5.jpg"
+                "image": "img/product-5.jpg",
+                "title": "Nourishing Beard Oil",
+                "description": "Infused with natural oils, this beard oil hydrates and softens facial hair while promoting healthy growth. Its subtle fragrance and lightweight formula leave your beard looking shiny and well-groomed."
             },
             "f6g7h8i9-j0k1-2l3m-4n5o-6p7q8r9s0t1u": {
                 "_id": "f6g7h8i9-j0k1-2l3m-4n5o-6p7q8r9s0t1u",
                 "name": "Hair Dryer",
                 "price": "59.99 lv",
-                "image": "img/product-6.jpg"
+                "image": "img/product-6.jpg",
+                "title": "Powerful Hair Dryer",
+                "description": "Equipped with advanced heat control and multiple speed settings, this hair dryer dries hair quickly without causing damage. Its sleek design and lightweight body make it easy to handle."
             },
             "g7h8i9j0-k1l2-3m4n-5o6p-7q8r9s0t1u2v": {
                 "_id": "g7h8i9j0-k1l2-3m4n-5o6p-7q8r9s0t1u2v",
                 "name": "Straight Razor",
                 "price": "25.99 lv",
-                "image": "img/product-7.jpg"
+                "image": "img/product-7.jpg",
+                "title": "Classic Straight Razor",
+                "description": "Experience the art of traditional shaving with this stainless steel straight razor. Perfect for precise and close shaves, it’s a durable and stylish addition to any grooming kit."
             },
             "h8i9j0k1-l2m3-4n5o-6p7q-8r9s0t1u2v3w": {
                 "_id": "h8i9j0k1-l2m3-4n5o-6p7q-8r9s0t1u2v3w",
                 "name": "Aftershave Balm",
                 "price": "12.99 lv",
-                "image": "img/product-8.jpg"
+                "image": "img/product-8.jpg",
+                "title": "Soothing Aftershave Balm",
+                "description": "This aftershave balm soothes and protects skin post-shave, reducing irritation and redness. Enriched with moisturizing ingredients, it leaves your skin feeling fresh and hydrated all day."
             },
             "i9j0k1l2-m3n4-5o6p-7q8r-9s0t1u2v3w4x": {
                 "_id": "i9j0k1l2-m3n4-5o6p-7q8r-9s0t1u2v3w4x",
                 "name": "Comb Set",
                 "price": "8.99 lv",
-                "image": "img/product-9.jpg"
+                "image": "img/product-9.jpg",
+                "title": "Premium Comb Set",
+                "description": "This set includes combs of various sizes and styles, perfect for detangling and styling. Made from durable material, these combs glide smoothly through all hair types."
             }
         },
+        
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {
     			_ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
