@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom"
 import "./AboutCard.css"
+import LogRegSection from "../../Shared/LogRegSection/LogRegSection"
+import AuthContext from "../../../contexts/authContext";
+import { useContext } from "react";
 
 export default function AboutCard({
   id,
@@ -7,9 +10,11 @@ export default function AboutCard({
   name,
   title,
   description,
-  price
+  price,
+  text
 
 }) {
+  const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
 
     return (
         <>
@@ -32,7 +37,21 @@ export default function AboutCard({
                     <p>{price}</p>
                   </div>
                 </div>
+                <div className="col-sm-4">
+                  <div className="single-about-add-info">
+                  {isAuthenticated && (
+                                        <a className="btn">
+                                            Add to Cart
+                                        </a>
+                                    )}
+                  </div>
+                  </div>
               </div>
+              {!isAuthenticated && (
+                                <LogRegSection
+                                    text={text}
+                                />
+                            )}
             </div>
           </div>
           <div className="col-sm-offset-1 col-sm-5">

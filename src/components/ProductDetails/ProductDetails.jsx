@@ -3,6 +3,7 @@ import AuthContext from '../../contexts/authContext';
 import { Link, useParams } from 'react-router-dom';
 import { getProductById } from '../../services/barberShopService';
 import AboutCard from '../Cards/AboutCard.jsx/AboutCard';
+import LogRegSection from '../Shared/LogRegSection/LogRegSection';
 
 export default function ProductDetails() {
     const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
@@ -53,13 +54,16 @@ export default function ProductDetails() {
                         <h2>{product.name}</h2>
                     </div>
                     <div className="row">
+                        
                         <AboutCard
                             key={product._id}
                             title={product.title}
                             description={product.description}
                             price={product.price}
                             image={product.image}
+                            text = "If you want to buy a product please log in to your account"
                         />
+
                     </div>
                 </div>
             </div>

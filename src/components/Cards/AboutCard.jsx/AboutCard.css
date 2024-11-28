@@ -18,9 +18,11 @@
     
 }
 .single-about-add-info {
+    
     margin: 35px 0;
 }
 .single-about-add-info h3 {
+    
     color: #636a82;
     font-size: 16px;
     text-transform: capitalize;
@@ -52,4 +54,19 @@
     
     max-width: 100%; /* Максималната ширина е 100% от контейнера */
     height: auto; /* Височината е автоматична, за да се запазят пропорциите */
+}
+.btn {
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1d2434;
+    background: none;
+    border: 2px solid #1d2434;
+    border-radius: 0;
+    transition: .3s;
+}
+.btn:hover {
+    color: #D5B981;
+    background: #1d2434;
 }

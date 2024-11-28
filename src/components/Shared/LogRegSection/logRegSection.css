@@ -14,19 +14,18 @@
     gap: 10px;
 }
 
-.log-reg-buttons .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
+.btn {
+    padding: 15px 30px;
     font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #1d2434;
+    background: none;
+    border: 2px solid #1d2434;
+    border-radius: 0;
+    transition: .3s;
 }
-
-.log-reg-buttons .btn:hover {
-    background-color: #0056b3;
+.btn:hover {
+    color: #D5B981;
+    background: #1d2434;
 }

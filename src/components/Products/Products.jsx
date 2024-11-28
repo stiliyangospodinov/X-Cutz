@@ -35,6 +35,7 @@ export default function Products(){
             </div>
             <div className="row">
             {produts.map(product => (
+                <div className="col-lg-3 col-md-4 col-sm-6">
                 <Link to={`/products/${product._id}`} key={product._id}>
               <PriceCard
               key={product._id}
@@ -43,6 +44,7 @@ export default function Products(){
               image={product.image}
               />
               </Link>
+              </div>
             ))}
             </div>
           </div>
