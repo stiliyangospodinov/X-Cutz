@@ -1457,76 +1457,132 @@
                 "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
                   "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
                   "service": "Hair Cut",
-                  "price": "$9.99",
+                  "price": "9.99 lv",
                   "image": "img/price-1.jpg"
                 },
                 "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
                   "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
                   "service": "Hair Wash",
-                  "price": "$10.99",
+                  "price": "10.99 lv",
                   "image": "img/price-2.jpg"
                 },
                 "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
                   "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
                   "service": "Hair Color",
-                  "price": "$11.99",
+                  "price": "11.99 lv",
                   "image": "img/price-3.jpg"
                 },
                 "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s": {
                   "_id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
                   "service": "Hair Shave",
-                  "price": "$12.99",
+                  "price": "12.99 lv",
                   "image": "img/price-4.jpg"
                 },
                 "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t": {
                   "_id": "5e6f7g8h-9i0j-1k2l-3m4n-5o6p7q8r9s0t",
                   "service": "Hair Straight",
-                  "price": "$13.99",
+                  "price": "13.99 lv",
                   "image": "img/price-5.jpg"
                 },
                 "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u": {
                   "_id": "6f7g8h9i-0j1k-2l3m-4n5o-6p7q8r9s0t1u",
                   "service": "Facial",
-                  "price": "$14.99",
+                  "price": "14.99 lv",
                   "image": "img/price-6.jpg"
                 },
                 "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v": {
                   "_id": "7g8h9i0j-1k2l-3m4n-5o6p-7q8r9s0t1u2v",
                   "service": "Shampoo",
-                  "price": "$15.99",
+                  "price": "15.99 lv",
                   "image": "img/price-7.jpg"
                 },
                 "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w": {
                   "_id": "8h9i0j1k-2l3m-4n5o-6p7q-8r9s0t1u2v3w",
                   "service": "Beard Trim",
-                  "price": "$16.99",
+                  "price": "16.99 lv",
                   "image": "img/price-8.jpg"
                 },
                 "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x": {
                   "_id": "9i0j1k2l-3m4n-5o6p-7q8r-9s0t1u2v3w4x",
                   "service": "Beard Shave",
-                  "price": "$17.99",
+                  "price": "17.99 lv",
                   "image": "img/price-9.jpg"
                 },
                 "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y": {
                   "_id": "0j1k2l3m-4n5o-6p7q-8r9s-0t1u2v3w4x5y",
                   "service": "Wedding Cut",
-                  "price": "$18.99",
+                  "price": "18.99 lv",
                   "image": "img/price-10.jpg"
                 },
                 "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z": {
                   "_id": "1k2l3m4n-5o6p-7q8r-9s0t-1u2v3w4x5y6z",
                   "service": "Clean Up",
-                  "price": "$19.99",
+                  "price": "19.99 lv",
                   "image": "img/price-11.jpg"
                 },
                 "2l3m4n5o-6p7q-8r9s-0t1u-2v3w4x5y6z7a": {
                   "_id": "2l3m4n5o-6p7q-8r9s-0t1u-2v3w4x5y6z7a",
                   "service": "Massage",
-                  "price": "$20.99",
+                  "price": "20.99 lv",
                   "image": "img/price-12.jpg"
                 }
 
+        },
+        products: {
+            "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6": {
+                "_id": "a1b2c3d4-e5f6-7g8h-9i0j-k1l2m3n4o5p6",
+                "name": "Hair Clipper",
+                "price": "49.99 lv",
+                "image": "img/product-1.png"
+            },
+            "b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7": {
+                "_id": "b2c3d4e5-f6g7-8h9i-0j1k-l2m3n4o5p6q7",
+                "name": "Shaver",
+                "price": "29.99 lv",
+                "image": "img/product-2.jpg"
+            },
+            "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r8": {
+                "_id": "c3d4e5f6-g7h8-9i0j-1k2l-m3n4o5p6q7r8",
+                "name": "Trimmer",
+                "price": "39.99 lv",
+                "image": "img/product-3.png"
+            },
+            "d4e5f6g7-h8i9-0j1k-2l3m-4n5o6p7q8r9s": {
+                "_id": "d4e5f6g7-h8i9-0j1k-2l3m-4n5o6p7q8r9s",
+                "name": "Scissors",
+                "price": "19.99 lv",
+                "image": "img/product-4.jpg"
+            },
+            "e5f6g7h8-i9j0-1k2l-3m4n-5o6p7q8r9s0t": {
+                "_id": "e5f6g7h8-i9j0-1k2l-3m4n-5o6p7q8r9s0t",
+                "name": "Beard Oil",
+                "price": "15.99 lv",
+                "image": "img/product-5.jpg"
+            },
+            "f6g7h8i9-j0k1-2l3m-4n5o-6p7q8r9s0t1u": {
+                "_id": "f6g7h8i9-j0k1-2l3m-4n5o-6p7q8r9s0t1u",
+                "name": "Hair Dryer",
+                "price": "59.99 lv",
+                "image": "img/product-6.jpg"
+            },
+            "g7h8i9j0-k1l2-3m4n-5o6p-7q8r9s0t1u2v": {
+                "_id": "g7h8i9j0-k1l2-3m4n-5o6p-7q8r9s0t1u2v",
+                "name": "Straight Razor",
+                "price": "25.99 lv",
+                "image": "img/product-7.jpg"
+            },
+            "h8i9j0k1-l2m3-4n5o-6p7q-8r9s0t1u2v3w": {
+                "_id": "h8i9j0k1-l2m3-4n5o-6p7q-8r9s0t1u2v3w",
+                "name": "Aftershave Balm",
+                "price": "12.99 lv",
+                "image": "img/product-8.jpg"
+            },
+            "i9j0k1l2-m3n4-5o6p-7q8r-9s0t1u2v3w4x": {
+                "_id": "i9j0k1l2-m3n4-5o6p-7q8r-9s0t1u2v3w4x",
+                "name": "Comb Set",
+                "price": "8.99 lv",
+                "image": "img/product-9.jpg"
+            }
         },
     	recipes: {
     		"3987279d-0ad4-4afb-8ca9-5b256ae3b298": {

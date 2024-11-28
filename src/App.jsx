@@ -21,6 +21,8 @@ import GuestGuard from "./guards/GuestGuard";
 import AdminGuard from "./guards/AdminGuard";
 import NotFound from "./components/404/NotFound";
 import CreateNews from "./components/CreateNews/CreateNews";
+import Products from "./components/Products/Products";
+import AboutCard from "./components/Cards/AboutCard.jsx/AboutCard";
 
 function App() {
 
@@ -32,6 +34,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/prices" element={<Price />} />
+                    <Route path="/products" element={<Products />} />
                     <Route path="/team" element={<Barber />} />
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />

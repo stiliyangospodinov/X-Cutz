@@ -1,0 +1,84 @@
+.about {padding: 140px 0 100px;}
+.about-content {padding-top: 100px;}
+/*.single-about-txt*/
+.single-about-txt h3 {
+    font-size:18px;
+    color: #3c4258;
+    text-transform: initial;
+    line-height: 1.8;
+}
+.single-about-txt p {
+    font-size: 16px;
+    color: #999fb3;
+    padding: 35px 0 43px;
+    border-bottom: 1px solid #999fb3;
+}
+.single-about-add-info {
+    margin: 35px 0;
+}
+.single-about-add-info h3 {
+    color: #636a82;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.single-about-add-info p {font-weight:  300;border:  0;padding: 0;margin-top: 3px;}
+/*.single-about-txt*/
+
+/*.single-about-img */
+.single-about-img{position: relative;box-shadow: 0 5px 20px rgba(14,25,80,.30);}
+.single-about-img {
+    position: relative;
+    box-shadow: 0 5px 20px rgba(14, 25, 80, .30);
+    overflow: hidden; /* Скрива излишното съдържание */
+    width: 100%; /* Увери се, че контейнерът заема 100% от родителя */
+}
+
+.single-about-img:before {
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0;
+    width: 109%;
+    height: 100%;
+
+}
+
+.single-about-img img {
+    max-width: 100%; /* Максималната ширина е 100% от контейнера */
+    height: auto; /* Височината е автоматична, за да се запазят пропорциите */
+}
+.about-list-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+}
+/*.ab-list-icon */
+.about-list-icon ul {
+    display: flex;
+}
+.about-list-icon  ul li a {
+    padding-right: 22px;
+    cursor:pointer;
+    color: #fff;
+}
+.about-list-icon ul li a {
+    cursor: pointer;
+    color: #fff;
+    display: inline-block;
+    border: 2px solid;
+    margin-left: 20px;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    line-height: 28px;
+    text-align: center;
+}
+.about-list-icon ul li a i {
+    margin-left: 6px;
+}

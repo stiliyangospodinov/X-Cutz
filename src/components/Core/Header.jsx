@@ -79,6 +79,7 @@ export default function Header() {
               <Link to="/about" className="nav-item nav-link"onClick={handleLinkClick}>About</Link>
               <Link to="/service" className="nav-item nav-link"onClick={handleLinkClick}>Service</Link>
               <Link to="/prices" className="nav-item nav-link"onClick={handleLinkClick}>Prices</Link>
+              <Link to="/products" className="nav-item nav-link"onClick={handleLinkClick}>Products</Link>
               <Link to="/team" className="nav-item nav-link"onClick={handleLinkClick}>Barbers</Link>
               <Link to="/gallery" className="nav-item nav-link"onClick={handleLinkClick}>Gallery</Link>
 

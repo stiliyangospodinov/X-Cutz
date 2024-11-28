@@ -22,6 +22,17 @@ export const getAllBarbers = async () => {
         }
     
 }
+    export const getAllProducts = async () => {
+        try {
+            const result = await request.get(`${baseUrl}/products`);
+
+            return Object.values(result);
+        } catch (error) {
+            console.log('Error fetching data:', error);
+        }
+    
+}
+
     export const getAllPictures = async () => {
         try {
             const result = await request.get(`${baseUrl}/gallery`);

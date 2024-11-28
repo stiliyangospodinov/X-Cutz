@@ -10,6 +10,7 @@ export default function Price (){
     barberShopService.getAllPrices()
       .then(result => setPrices(result));
   }, []);
+  
     return (
       <div>
       <div className="page-header">
