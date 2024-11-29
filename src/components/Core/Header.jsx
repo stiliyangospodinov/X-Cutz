@@ -89,6 +89,9 @@ export default function Header() {
                     {username}'s Profile
                   </Link>
                   <Link to="/logout" className="nav-item nav-link"onClick={handleLinkClick}>Logout</Link>
+                  <Link to="/cart" className="nav-item nav-link" onClick={handleLinkClick}>
+                    <i className="fas fa-shopping-cart"></i>
+                  </Link>
                 </>
               )}
 

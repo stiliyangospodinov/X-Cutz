@@ -35,7 +35,7 @@ export default function AboutCard({
 
     // Настройваме данни за съобщението в модала
     setService({
-      title: `${product.name} Added to Cart`,
+      title: `${name} Added to Cart`,
       description: `You have successfully added ${name} to your cart.`,
       more: `Price: $${price}`,
     });

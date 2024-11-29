@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import * as authService from "../services/authService";
 import Paths from "../paths";
 import { saveAuthData, clearAuthData, getAuthData } from "../utils/authUtils";
+import { useDispatch } from "react-redux";
+import { clearCart } from "../slices/cartSlice";
 
 const AuthContext = createContext();
 AuthContext.displayName = "AuthContext";
@@ -13,6 +15,7 @@ const isAdmin = (userId) => userId === ADMIN_ID;
 
 export const AuthProvider = ({ children }) => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [auth, setAuth] = useState({
         accessToken: null,
@@ -73,6 +76,9 @@ export const AuthProvider = ({ children }) => {
             username: null,
             isAdmin: false,
         });
+
+        dispatch(clearCart());
+
         navigate(Paths.Home);
     };
 

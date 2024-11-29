@@ -44,8 +44,8 @@ function App() {
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />
                     <Route path="/gallery" element={<Gallery />} />
-                    <Route path="/cart" element={<Cart />} />
                     <Route element={<AuthGuard />}>
+                    <Route path="/cart" element={<Cart />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/profile" element={<Profile />} />
                     </Route>
