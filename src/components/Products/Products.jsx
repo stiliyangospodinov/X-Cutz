@@ -35,7 +35,7 @@ export default function Products(){
             </div>
             <div className="row">
             {produts.map(product => (
-                <div className="col-lg-3 col-md-4 col-sm-6">
+                <div className="col-lg-3 col-md-4 col-sm-6" key={product._id}>
                 <Link to={`/products/${product._id}`} key={product._id}>
               <PriceCard
               key={product._id}

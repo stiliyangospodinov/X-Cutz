@@ -3,6 +3,8 @@ import "./AboutCard.css"
 import LogRegSection from "../../Shared/LogRegSection/LogRegSection"
 import AuthContext from "../../../contexts/authContext";
 import { useContext } from "react";
+import { useDispatch } from 'react-redux';
+import { addItem } from '../../../slices/cartSlice';
 
 export default function AboutCard({
   id,
@@ -15,6 +17,19 @@ export default function AboutCard({
 
 }) {
   const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
+  const dispatch = useDispatch();
+
+const handleAddToCart = () => {
+  dispatch(
+    addItem({
+      id,
+      name,
+      price,
+      image,
+      quantity: 1,
+    })
+  );
+};
 
     return (
         <>
@@ -40,7 +55,7 @@ export default function AboutCard({
                 <div className="col-sm-4">
                   <div className="single-about-add-info">
                   {isAuthenticated && (
-                                        <a className="btn">
+                                        <a className="btn" onClick={handleAddToCart}>
                                             Add to Cart
                                         </a>
                                     )}

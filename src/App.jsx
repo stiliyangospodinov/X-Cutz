@@ -22,12 +22,15 @@ import AdminGuard from "./guards/AdminGuard";
 import NotFound from "./components/404/NotFound";
 import CreateNews from "./components/CreateNews/CreateNews";
 import Products from "./components/Products/Products";
-import AboutCard from "./components/Cards/AboutCard.jsx/AboutCard";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
+import { Provider } from "react-redux"; 
+import { store } from "./store";
+import Cart from "./components/Cart/Cart";
 
 function App() {
 
     return (
+        <Provider store={store}>
         <AuthProvider>
             <>
                 <Header/>
@@ -41,6 +44,7 @@ function App() {
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/cart" element={<Cart />} />
                     <Route element={<AuthGuard />}>
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/profile" element={<Profile />} />
@@ -60,6 +64,7 @@ function App() {
                 <Footer/>
             </>
         </AuthProvider>
+        </Provider>
     );
 }
 
