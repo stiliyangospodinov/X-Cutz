@@ -57,6 +57,7 @@ export default function ProductDetails() {
                         
                         <AboutCard
                             key={product._id}
+                            id={product._id}
                             title={product.title}
                             description={product.description}
                             price={product.price}

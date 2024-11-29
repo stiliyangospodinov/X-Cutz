@@ -2,9 +2,10 @@ import { Link } from "react-router-dom"
 import "./AboutCard.css"
 import LogRegSection from "../../Shared/LogRegSection/LogRegSection"
 import AuthContext from "../../../contexts/authContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useDispatch } from 'react-redux';
 import { addItem } from '../../../slices/cartSlice';
+import Modal from "../../Shared/Modals/Modal/Modal";
 
 export default function AboutCard({
   id,
@@ -18,19 +19,34 @@ export default function AboutCard({
 }) {
   const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
   const dispatch = useDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [service, setService] = useState(null);
+  const handleAddToCart = () => {
+    // Добавяме продукта в количката
+    dispatch(
+      addItem({
+        id,
+        name,
+        price,
+        image,
+        quantity: 1,
+      })
+    );
 
-const handleAddToCart = () => {
-  dispatch(
-    addItem({
-      id,
-      name,
-      price,
-      image,
-      quantity: 1,
-    })
-  );
-};
+    // Настройваме данни за съобщението в модала
+    setService({
+      title: `${product.name} Added to Cart`,
+      description: `You have successfully added ${name} to your cart.`,
+      more: `Price: $${price}`,
+    });
 
+    setIsModalOpen(true); // Отваряме модала
+
+    // След 3 секунди автоматично затваряме модала
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 3000); // Таймер за затваряне на модала след 3 секунди
+  };
     return (
         <>
 
@@ -78,7 +94,11 @@ const handleAddToCart = () => {
       </div>
     </div>
   </section>
-
+  <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} // Затваряне на модала
+        service={service} // Изпращаме данните на продукта към модала
+      />
 </>
 
     )
