@@ -25,6 +25,10 @@ Technologies
 The project uses the following technologies:
 
     React - A JavaScript library for building user interfaces.
+    
+    React Context API - For managing user authentication and state.
+    
+    Redux - For managing the state of the shopping cart.
 
 Project Setup
 
