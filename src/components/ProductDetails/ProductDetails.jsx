@@ -6,9 +6,8 @@ import AboutCard from '../Cards/AboutCard.jsx/AboutCard';
 import LogRegSection from '../Shared/LogRegSection/LogRegSection';
 
 export default function ProductDetails() {
-    const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
-    const { id } = useParams();
 
+    const { id } = useParams();
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -58,6 +57,7 @@ export default function ProductDetails() {
                         <AboutCard
                             key={product._id}
                             id={product._id}
+                            name={product.name}
                             title={product.title}
                             description={product.description}
                             price={product.price}

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import "./AboutCard.css"
 import LogRegSection from "../../Shared/LogRegSection/LogRegSection"
 import AuthContext from "../../../contexts/authContext";
@@ -21,9 +20,10 @@ export default function AboutCard({
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [service, setService] = useState(null);
+
   const handleAddToCart = () => {
-    // Добавяме продукта в количката
-    dispatch(
+    console.log("Adding to cart:", { id, name, price, image });
+      dispatch(
       addItem({
         id,
         name,
@@ -33,19 +33,17 @@ export default function AboutCard({
       })
     );
 
-    // Настройваме данни за съобщението в модала
     setService({
       title: `${name} Added to Cart`,
       description: `You have successfully added ${name} to your cart.`,
       more: `Price: $${price}`,
     });
 
-    setIsModalOpen(true); // Отваряме модала
+    setIsModalOpen(true);
 
-    // След 3 секунди автоматично затваряме модала
     setTimeout(() => {
       setIsModalOpen(false);
-    }, 3000); // Таймер за затваряне на модала след 3 секунди
+    }, 1000);
   };
     return (
         <>
@@ -96,8 +94,8 @@ export default function AboutCard({
   </section>
   <Modal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)} // Затваряне на модала
-        service={service} // Изпращаме данните на продукта към модала
+        onClose={() => setIsModalOpen(false)}
+        service={service} 
       />
 </>
 
