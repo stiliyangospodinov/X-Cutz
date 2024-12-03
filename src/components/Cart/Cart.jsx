@@ -75,7 +75,17 @@ export default function Cart() {
                 >
                   Clear Cart
                 </button >
-                <button className="btn btn-warning"> Pay</button>
+                <Link 
+      to="/payment"
+      className="btn btn-warning"
+      style={{ marginLeft: '50px' }}
+      onClick={() => {
+        localStorage.setItem('cartTotal', JSON.stringify(total)); // Запис в localStorage
+      }}
+    >
+      Pay
+    </Link>
+
               </div>
             )}
           </div>

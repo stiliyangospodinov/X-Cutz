@@ -26,6 +26,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import { Provider } from "react-redux"; 
 import { store } from "./store";
 import Cart from "./components/Cart/Cart";
+import Payment from "./components/Payment/Payment";
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/logout" element={<Logout />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/payment" element={<Payment />} />
                     </Route>
                     <Route element={<GuestGuard />}>
                     <Route path="/login" element={<Login />} />
