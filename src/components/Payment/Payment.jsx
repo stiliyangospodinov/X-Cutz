@@ -4,26 +4,29 @@ import useForm from '../../hooks/useForm';
 import AuthContext from '../../contexts/authContext';
 import { clearCart } from '../../slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import Modal from "../Shared/Modals/Modal/Modal";
 
 const initialValues = { fullName: '', address: '', city: '', postalCode: '' };
 
 const Payment = () => {
-    const [message, setMessage] = useState({ type: '', text: '' });
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalService, setModalService] = useState({ title: '' });
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const { isAuthenticated, username } = useContext(AuthContext); 
+    const { username } = useContext(AuthContext); 
     const cartTotal = JSON.parse(localStorage.getItem('cartTotal')) || 0; 
 
     const submitHandler = async (formData) => {
         try {
             console.log('Payment details:', formData);
-            setMessage({ type: 'success', text: 'Payment completed successfully!' });
+            setModalService({ title: 'Your payment has been successfully processed!' });
+            setIsModalOpen(true);
             dispatch(clearCart());
             setTimeout(() => {
+                setIsModalOpen(false);
                 navigate('/'); 
             }, 2000);
         } catch (error) {
-            setMessage({ type: 'error', text: 'Error processing payment. Please try again.' });
             console.error('Error processing payment:', error);
         }
     };
@@ -52,11 +55,6 @@ const Payment = () => {
                 <div className="container">
                     <div className="align-items-center">
                         <div className="contact-form">
-                            {message.text && (
-                                <p className={message.type === 'error' ? 'text-danger' : 'text-success'}>
-                                    {message.text}
-                                </p>
-                            )}
                             <form id="paymentForm" onSubmit={onSubmit}>
                                 <div className="control-group">
                                     <input
@@ -111,6 +109,13 @@ const Payment = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Modal Component */}
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={() => setIsModalOpen(false)} 
+                service={modalService} 
+            />
         </div>
     );
 };
