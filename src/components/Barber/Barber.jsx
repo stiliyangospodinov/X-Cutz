@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as barberService from "../../services/barberShopService";
-import BarberCard from "../Cards/BarberCard";
+import BarberCard from "../Cards/BarberCard/BarberCard";
 import AuthContext from "../../contexts/authContext";
 export default function Barber() {
   const {
@@ -61,7 +61,7 @@ export default function Barber() {
                     
                               </div>
                           
-                            </Link>
+                            </Link> 
                           </div>
                             
 

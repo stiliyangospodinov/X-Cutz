@@ -9,14 +9,14 @@
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  opacity: 1; /* Добавено за анимацията */
-  visibility: visible; /* Добавено за управление на видимостта */
-  transition: opacity 0.3s ease, visibility 0.3s ease; /* Плавен преход */
+  opacity: 1;
+  visibility: visible; 
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .modal-overlay.closing {
-  opacity: 0; /* Прозрачност при затваряне */
-  visibility: hidden; /* Скрива след анимацията */
+  opacity: 0;
+  visibility: hidden;
 }
 
 .modal-content {
@@ -27,10 +27,10 @@
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
-  transform: scale(1); /* Добавено за анимация */
-  transition: transform 0.3s ease; /* Преход за мащабиране */
+  transform: scale(1);
+  transition: transform 0.3s ease; 
 }
 
 .modal-overlay.closing .modal-content {
-  transform: scale(0.9); /* Намалява размера при затваряне */
+  transform: scale(0.9);
 }

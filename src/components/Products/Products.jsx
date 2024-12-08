@@ -1,4 +1,4 @@
-import PriceCard from "../Cards/PriceCard";
+import PriceCard from "../Cards/PriceCard/PriceCard";
 import * as barberShopService from "../../services/barberShopService";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

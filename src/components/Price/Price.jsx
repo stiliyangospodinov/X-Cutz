@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as barberShopService from "../../services/barberShopService";
-import PriceCard from "../Cards/PriceCard";
+import PriceCard from "../Cards/PriceCard/PriceCard";
 import { Link } from "react-router-dom";
 export default function Price (){
 
