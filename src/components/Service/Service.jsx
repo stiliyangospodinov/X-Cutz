@@ -5,6 +5,7 @@ import Modal from '../Shared/Modals/Modal/Modal';
 import LogRegSection from '../Shared/LogRegSection/LogRegSection'; 
 
 import AuthContext from '../../contexts/authContext';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const Service = () => {
     const { isAuthenticated } = useContext(AuthContext);
@@ -37,20 +38,7 @@ const Service = () => {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Service</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/login">Login</Link>
-                            <Link to="/register">Register</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Service" endpoint="service" />
             <div className="service">
                 <div className="container">
                     <div className="section-header text-center">

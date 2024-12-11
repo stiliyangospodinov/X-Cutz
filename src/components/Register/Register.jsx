@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import validateForm from "../../utils/registerValidations";
 import useForm from "../../hooks/useForm";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 
 export default function Register() {
     const RegisterFormKeys = {
@@ -35,19 +36,7 @@ export default function Register() {
     
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Register</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/login">Login</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Register" endpoint="register" />
             <div className="contact">
                 <div className="container-fluid">
                     <div className="container">

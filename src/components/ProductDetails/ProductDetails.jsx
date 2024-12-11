@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getProductById } from '../../services/barberShopService';
 import AboutCard from '../Cards/AboutCard/AboutCard';
 import LogRegSection from '../Shared/LogRegSection/LogRegSection';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 export default function ProductDetails() {
 
@@ -33,19 +34,7 @@ export default function ProductDetails() {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Product</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/products">Products</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Products" endpoint="products" />
             <div className="price">
                 <div className="container">
                     <div className="section-header text-center">

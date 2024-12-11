@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as barberShopService from "../../services/barberShopService";
 import PriceCard from "../Cards/PriceCard/PriceCard";
 import { Link } from "react-router-dom";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 export default function Price (){
 
   const [prices, setPrices] = useState([]);
@@ -13,19 +14,7 @@ export default function Price (){
 
     return (
       <div>
-      <div className="page-header">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <h2>Prices</h2>
-          </div>
-          <div className="col-12">
-            <Link to="/">Home</Link>
-            <Link to="/prices">Price</Link>
-          </div>
-        </div>
-      </div>
-    </div>
+  <PageHeader name="Cart" endpoint="cart" />
     <div className="price">
         <div className="container">
           <div className="section-header text-center">

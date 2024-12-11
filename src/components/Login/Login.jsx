@@ -3,6 +3,7 @@ import AuthContext from "../../contexts/authContext";
 import useForm from "../../hooks/useForm";
 import validateForm from "../../utils/loginValidations";
 import { Link } from "react-router-dom";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 
 const LoginFormKeys = {
     Email: 'email',
@@ -33,19 +34,7 @@ export default function Login() {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Login</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/register">Register</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+     <PageHeader name="Login" endpoint="login" />
             <div className="contact">
                 <div className="container-fluid">
                     <div className="container">

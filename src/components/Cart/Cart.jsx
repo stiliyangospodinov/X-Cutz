@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, clearCart } from '../../slices/cartSlice';
 import { Link } from 'react-router-dom';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 export default function Cart() {
     const items = useSelector((state) => state.cart.items);
@@ -21,19 +22,7 @@ export default function Cart() {
     return (
       <div>
         {/* Page Header */}
-        <div className="page-header">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <h2>Shopping Cart</h2>
-              </div>
-              <div className="col-12">
-                <Link to="/">Home</Link>
-                <Link to="/products">Products</Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeader name="Cart" endpoint="cart" />
 
         {/* Cart Section */}
         <div className="price">

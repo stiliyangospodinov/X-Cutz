@@ -5,6 +5,7 @@ import AuthContext from '../../contexts/authContext';
 import { clearCart } from '../../slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import Modal from "../Shared/Modals/Modal/Modal";
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const initialValues = { fullName: '', address: '', city: '', postalCode: '' };
 
@@ -35,22 +36,7 @@ const Payment = () => {
 
     return (
         <div>
-            {/* Заглавие на страницата */}
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Payment</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/cart">Cart</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            {/* Формата за плащане */}
+     <PageHeader name="Cart" endpoint="cart" /> 
             <div className="contact">
                 <div className="container">
                     <div className="align-items-center">
@@ -110,7 +96,6 @@ const Payment = () => {
                 </div>
             </div>
 
-            {/* Modal Component */}
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={() => setIsModalOpen(false)} 

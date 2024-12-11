@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import * as barberService from "../../services/barberShopService";
 import GalleryCard from "../Cards/GalleryCard/GalleryCard";
-import { Link } from "react-router-dom";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 export default function () {
   const [pictures, setPictures] = useState([]);
 
@@ -11,19 +11,7 @@ export default function () {
   }, []);
     return (
         <div>
-        <div className="page-header">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h2>Gallery</h2>
-            </div>
-            <div className="col-12">
-              <Link to="/">Home</Link>
-              <Link to="/gallery">Gallery</Link>
-            </div>
-          </div>
-        </div>
-      </div>
+  <PageHeader name="Gallery" endpoint="gallery" />
         <div className="portfolio">
   <div className="container">
     <div className="section-header text-center">

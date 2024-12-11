@@ -2,6 +2,7 @@ import PriceCard from "../Cards/PriceCard/PriceCard";
 import * as barberShopService from "../../services/barberShopService";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 
 export default function Products(){
 
@@ -14,19 +15,7 @@ export default function Products(){
     
     return (
         <div>
-        <div className="page-header">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h2>Products</h2>
-            </div>
-            <div className="col-12">
-              <Link to="/">Home</Link>
-              <Link to="/products">Products</Link>
-            </div>
-          </div>
-        </div>
-      </div>
+  <PageHeader name="Products" endpoint="products" />
       <div className="price">
           <div className="container">
             <div className="section-header text-center">

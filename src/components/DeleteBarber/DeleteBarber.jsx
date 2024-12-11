@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { deleteBarber, getBarberById } from '../../services/barberShopService';
 import AuthContext from '../../contexts/authContext';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const DeleteBarber = () => {
     const { id } = useParams();
@@ -46,19 +47,7 @@ const DeleteBarber = () => {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Delete Barber</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/team">Team</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Barbers" endpoint="team" />
             <div className="contact">
                 <div className="container">
                     <div className="align-items-center">

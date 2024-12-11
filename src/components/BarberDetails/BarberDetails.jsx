@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import AuthContext from '../../contexts/authContext';
 import { getBarberById } from '../../services/barberShopService';
 import CommentsComponent from '../Comments/Comments';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 export default function BarberDetails() {
     const { isAuthenticated, isAdmin, username } = useContext(AuthContext);
@@ -27,19 +28,7 @@ export default function BarberDetails() {
 
     return (
         <>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Barber Details</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/team">Team</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Barbers" endpoint="team" />
             <div className="contact">
                 <div className="contact-form" style={{ backgroundColor: 'white' }}>
                     <div className="team">

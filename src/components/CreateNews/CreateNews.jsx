@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createNews } from '../../services/newsService'; 
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const formatDate = (date) => {
     return new Date(date).toISOString();
@@ -32,19 +33,7 @@ const CreateNews = () => {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Add New News Item</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/news">News</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="News" endpoint="" />
             <div className="contact">
                 <div className="container">
                     <div className="align-items-center">

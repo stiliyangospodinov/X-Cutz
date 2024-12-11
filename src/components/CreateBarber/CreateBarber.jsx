@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { createBarber } from '../../services/barberShopService';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import PageHeader from '../Shared/PageHeader/PageHeader';
 
 const initialValues = { name: '', title: '', photo: '', description: '' };
 
@@ -24,19 +25,7 @@ const CreateBarber = () => {
 
     return (
         <div>
-            <div className="page-header">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h2>Add new barber</h2>
-                        </div>
-                        <div className="col-12">
-                            <Link to="/">Home</Link>
-                            <Link to="/team">Team</Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <PageHeader name="Barbers" endpoint="team" />
             <div className="contact">
                 <div className="container">
                     <div className="align-items-center">

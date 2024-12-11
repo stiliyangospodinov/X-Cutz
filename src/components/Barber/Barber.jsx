@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as barberService from "../../services/barberShopService";
 import BarberCard from "../Cards/BarberCard/BarberCard";
 import AuthContext from "../../contexts/authContext";
+import PageHeader from "../Shared/PageHeader/PageHeader";
 export default function Barber() {
   const {
     isAuthenticated,
@@ -21,19 +22,7 @@ export default function Barber() {
     console.log(barbers);
     return (
       <div>
-      <div className="page-header">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <h2>Barbers</h2>
-          </div>
-          <div className="col-12">
-          <Link to="/">Home</Link>
-          <Link to="/team">Barbers</Link>
-          </div>
-        </div>
-      </div>
-    </div>
+  <PageHeader name="Barbers" endpoint="team" />
     <div className="team">
         <div className="container">
           <div className="section-header text-center">
@@ -51,23 +40,18 @@ export default function Barber() {
             />
           ))}
             {isAuthenticated && isAdmin && (
-                            <div className="col-lg-3 col-md-6">
-                            <Link to="/create" className="team-item">
-                              <div className="team-img">
-                                <img src="https://cdn2.iconfinder.com/data/icons/small-buttons/64/Button_not_pressed_with_add_icon-512.png" alt="Team Image" />
-                              </div>
-                              <div className="team-text">
-                                <h2>Add new barber</h2>
-                    
-                              </div>
-                          
-                            </Link> 
-                          </div>
-                            
-
-)}
-
-   
+              <div className="col-lg-3 col-md-6">
+                <Link to="/create" className="team-item">
+                  <div className="team-img">
+                    <img src="https://cdn2.iconfinder.com/data/icons/small-buttons/64/Button_not_pressed_with_add_icon-512.png" alt="Team Image" />
+                  </div>
+                    <div className="team-text">
+                      <h2>Add new barber</h2>
+                    </div>
+                  </Link> 
+                </div>
+            
+          )}
           </div>
         </div>
       </div>
