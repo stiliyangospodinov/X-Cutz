@@ -14,7 +14,7 @@ export default function Price (){
 
     return (
       <div>
-  <PageHeader name="Cart" endpoint="cart" />
+  <PageHeader name="Prices" endpoint="prices" />
     <div className="price">
         <div className="container">
           <div className="section-header text-center">
