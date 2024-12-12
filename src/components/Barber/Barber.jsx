@@ -49,8 +49,7 @@ export default function Barber() {
                       <h2>Add new barber</h2>
                     </div>
                   </Link> 
-                </div>
-            
+                </div>  
           )}
           </div>
         </div>
