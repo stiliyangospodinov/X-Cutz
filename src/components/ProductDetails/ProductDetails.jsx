@@ -1,9 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-import AuthContext from '../../contexts/authContext';
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getProductById } from '../../services/barberShopService';
 import AboutCard from '../Cards/AboutCard/AboutCard';
-import LogRegSection from '../Shared/LogRegSection/LogRegSection';
 import PageHeader from '../Shared/PageHeader/PageHeader';
 
 export default function ProductDetails() {
