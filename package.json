@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "main": "server.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
-  },
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "server": "node server/dist/server.js",
+  "start": "vite preview",
+  "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+  "preview": "vite preview"
+},
   "dependencies": {
     "@reduxjs/toolkit": "^2.4.0",
     "axios": "^1.7.2",
