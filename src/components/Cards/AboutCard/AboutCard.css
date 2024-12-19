@@ -70,3 +70,30 @@
     color: #D5B981;
     background: #1d2434;
 }
+@media (max-width: 768px) {
+    .row {
+        display: flex;
+        flex-direction: column; /* Подрежда елементите вертикално */
+        align-items: center; /* Центрира съдържанието */
+    }
+
+    .col-sm-offset-1.col-sm-5 {
+        order: -1; /* Поставя изображението най-отгоре */
+        margin-bottom: 20px; /* Добавя разстояние под изображението */
+    }
+
+    .col-sm-6 {
+        order: 0; /* Поставя текста под изображението */
+        text-align: center; /* Центрира текста */
+    }
+
+    .single-about-img {
+        width: 100%; /* Уверява се, че изображението заема цялата ширина */
+        max-width: 500px; /* Максимална ширина за изображението */
+    }
+
+    .single-about-img img {
+        width: 100%;
+        height: auto; /* Запазва пропорциите на изображението */
+    }
+}

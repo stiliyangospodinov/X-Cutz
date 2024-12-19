@@ -30,9 +30,6 @@ export default function AboutCard({
   return (
     <>
       <section id="about" className="about">
-        <div className="section-heading text-center">
-          <h2>{name}</h2>
-        </div>
         <div className="container">
           <div className="about-content">
             <div className="row">
