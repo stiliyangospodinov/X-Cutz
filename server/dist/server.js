@@ -1994,7 +1994,15 @@
     ];
 
     const http = require('http');
-
+    const cors = require('cors');
+    
+    // Позволете заявки от вашия фронтенд домейн
+    app.use(cors({
+        origin: 'http://localhost:3000', // Ако тествате локално
+        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Разрешени методи
+        credentials: true // Позволява изпращането на бисквитки
+    }));
+    
     // Основният requestHandler
     const handler = requestHandler(plugins, services);
     
@@ -2011,13 +2019,5 @@
             console.log(`Server is running locally on http://localhost:${port}`);
         });
     }
-    const cors = require('cors');
-
-// Позволете заявки от вашия фронтенд домейн
-app.use(cors({
-    origin: 'http://localhost:3000', // Ако тествате локално
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Разрешени методи
-    credentials: true // Позволява изпращането на бисквитки
-}));
 
 })));
