@@ -2,10 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "server/dist/server.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
@@ -15,12 +11,12 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "server/dist/server.js"
+      "src": "/api/(.*)", 
+      "dest": "https://x-cutz.onrender.com/admin/$1" 
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1"
+      "dest": "dist/index.html"
     }
   ]
 }
