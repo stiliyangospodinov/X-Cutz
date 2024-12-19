@@ -1993,31 +1993,16 @@
         rules(settings)
     ];
 
-    const http = require('http');
-    const cors = require('cors');
-    
-    // Позволете заявки от вашия фронтенд домейн
-    app.use(cors({
-        origin: 'http://localhost:3000', // Ако тествате локално
-        methods: ['GET', 'POST', 'PUT', 'DELETE'], // Разрешени методи
-        credentials: true // Позволява изпращането на бисквитки
-    }));
-    
-    // Основният requestHandler
-    const handler = requestHandler(plugins, services);
-    
-    // Експортиране за Vercel
-    module.exports = (req, res) => {
-        handler(req, res);
-    };
-    
-    // Стартиране за локална среда
-    if (require.main === module) {
-        const port = 3030;
-        const server = http.createServer(handler);
-        server.listen(port, () => {
-            console.log(`Server is running locally on http://localhost:${port}`);
-        });
-    }
+    const server = http__default['default'].createServer(requestHandler(plugins, services));
 
+    const port = 3030;
+
+    server.listen(port);
+
+    console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
+    console.log(`Admin panel located at http://localhost:${port}/admin`);
+
+    var softuniPracticeServerMaster = server;
+
+    return softuniPracticeServerMaster;
 })));
