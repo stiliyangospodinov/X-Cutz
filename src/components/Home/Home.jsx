@@ -33,7 +33,7 @@ export default function Home() {
                     </div>
                     <div className="col-sm-12 col-md-6 d-none d-md-block">
                         <div className="hero-image">
-                            <img src="img/ivan_workz.png" alt="Hero Image" />
+                            <img src="img/ivan_working.png" alt="Hero Image" />
                         </div>
                     </div>
                 </div>
