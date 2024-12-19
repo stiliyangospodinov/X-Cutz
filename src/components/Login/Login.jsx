@@ -36,7 +36,7 @@ export default function Login() {
         <div>
      <PageHeader name="Login" endpoint="login" />
             <div className="contact">
-                <div className="container-fluid">
+                <div className="container-fluid two">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-4" />

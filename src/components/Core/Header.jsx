@@ -60,7 +60,8 @@ export default function Header() {
       <div className="navbar navbar-expand-lg bg-dark navbar-dark">
         <div className="container-fluid">
           <Link to="/" className="navbar-brand">
-            <span>X</span> CUTZ
+          <img src="/img/favicon.webp" alt="X CUTZ Logo" className="navbar-logo" />
+             <span>CUTZ</span>
           </Link>
           <button
             type="button"

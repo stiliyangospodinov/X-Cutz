@@ -1350,37 +1350,37 @@
             "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-                "name": "Adam Phillips",
+                "name": "Georgi Mitev",
                 "title": "Master Barber",
                 "photo": "/img/team-1.jpg",
-                "description": "Adam is a highly skilled barber with over 10 years of experience. He specializes in classic and modern haircuts.",
+                "description": "Georgi is a highly skilled barber with over 10 years of experience. He specializes in classic and modern haircuts.",
 
             },
             "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-                "name": "Dylan Adams",
+                "name": "Dimitar Adamov",
                 "title": "Hair Expert",
                 "photo": "/img/team-2.jpg",
-                "description": "Dylan is a creative hair expert known for his unique styles and attention to detail. He has been a part of our team for 5 years.",
+                "description": "Dimitar is a creative hair expert known for his unique styles and attention to detail. He has been a part of our team for 5 years.",
 
             },
             "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "3c4d5e6f-7g8h-9i0j-1k2l-m3n4o5p6q7r8",
-                "name": "Gloria Edwardson",
+                "name": "Ivelin Sotyanov",
                 "title": "Beard Expert",
                 "photo": "/img/team-3.jpg",
-                "description": "Gloria is a beard expert with a passion for grooming and styling beards. She has been perfecting her craft for 7 years.",
+                "description": "Ivelin is a beard expert with a passion for grooming and styling beards. She has been perfecting her craft for 7 years.",
 
             },
             "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s": {
                 "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
                 "_id": "4d5e6f7g-8h9i-0j1k-2l3m-4n5o6p7q8r9s",
-                "name": "Josh Dunn",
+                "name": "Kiril Ognyanov",
                 "title": "Color Expert",
                 "photo": "/img/team-4.jpg",
-                "description": "Josh is a color expert who excels in creating vibrant and natural-looking hair colors. He has been in the industry for 8 years.",
+                "description": "Kiril is a color expert who excels in creating vibrant and natural-looking hair colors. He has been in the industry for 8 years.",
 
             }
         },
