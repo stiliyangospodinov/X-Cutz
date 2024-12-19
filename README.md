@@ -1,117 +1,120 @@
-BarberX
+# X Cutz
 
-BarberX is a ReactJS project created to demonstrate basic web application development skills. The project uses SoftUni’s practical server for data storage, providing a real working environment.
-Table of Contents
+X Cutz is a ReactJS project created to demonstrate basic web application development skills. The project uses SoftUni’s practical server for data storage, providing a real working environment. The server is hosted online, making it accessible both in the demo version and for local development.
 
-    Description
-    Features
-    Technologies
-    Project Setup
-    Usage
-    Developers
+---
 
-Description
+## Table of Contents
 
-BarberX is an application that demonstrates core concepts in web application development using React. It includes several pages and features that help visualize data and interact with users.
-Features
+1. [Description](#description)
+2. [Features](#features)
+3. [Technologies](#technologies)
+4. [Project Setup](#project-setup)
+5. [Usage](#usage)
+   - [Public Section](#public-section)
+   - [User Section](#user-section)
+   - [Admin Section](#admin-section)
+6. [Developers](#developers)
 
-    Main page with information overview
-    Advanced interface for data management
-    SoftUni practice server for data storage
-    Responsive design for various devices
+---
 
-Technologies
+## Description
+
+X Cutz is an application that demonstrates core concepts in web application development using React. It includes several pages and features that help visualize data and interact with users.
+
+---
+
+## Features
+
+- **Main Page**: Overview of essential information.
+- **Data Management**: Advanced interface for managing data.
+- **Practice Server**: Integration with SoftUni’s practical server for data storage.
+- **Responsive Design**: Optimized for various devices and screen sizes.
+- **Products Page**: Explore a variety of products available at the barbershop.
+- **Shopping Cart and Orders**: Registered users can add products to their cart and place an order after finalizing their selection.
+
+---
+
+## Technologies
 
 The project uses the following technologies:
 
-    React - A JavaScript library for building user interfaces.
-    
-    React Context API - For managing user authentication and state.
-    
-    Redux - For managing the state of the shopping cart.
+- **React**: A JavaScript library for building user interfaces.
+- **React Context API**: For managing user authentication and state.
+- **Redux**: For managing the state of the shopping cart.
 
-Project Setup
+---
 
-    Clone the repository:
+## Project Setup
 
-    bash
+Follow these steps to set up and run the project locally:
 
-git clone https://github.com/stiliyangospodinov/BarberX.git
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/stiliyangospodinov/X-Cutz.git
+   ```
 
-Navigate to the project directory:
+2. **Navigate to the project directory:**
+   ```bash
+   cd X-Cutz
+   ```
 
-bash
+3. **Install the necessary dependencies:**
+   ```bash
+   npm install
+   ```
 
-cd BarberX
+4. **Start the application locally:**
+   ```bash
+   npm run dev
+   ```
+   This will launch the application locally, and you can access it in your browser. The application will connect to the hosted server for data, ensuring seamless integration.
 
-Install the necessary dependencies:
+---
 
-bash
+## Usage
 
-npm install
+Once the application is running, you can navigate through its sections using the menu. Each section offers specific functionalities:
 
-Navigate to the server directory:
+### Public Section
 
-bash
+The public section provides basic information about X Cutz:
 
-cd BarberX/server
+- Access to general information about the barbershop.
+- No ability to access specific services or post comments.
 
-Install the necessary server dependencies:
+### User Section
 
-bash
+Registered users gain access to additional features:
 
-npm install
+- Read news related to X Cutz and the barbering industry.
+- Post and delete comments on different barbers.
+- View and explore various services offered by the barbershop.
+- Add products to their shopping cart.
+- Finalize orders after selecting desired products.
 
-Navigate to the dist directory:
+### Admin Section
 
-bash
+Administrators have full control over the platform’s content:
 
-cd BarberX/server/dist
+- Add or delete old news.
+- Manage barbers: add, edit, or remove barbers.
 
-Start the server and keep the terminal open:
+**Admin Credentials:**
+- **Username:** admin@abv.bg
+- **Password:** admin
 
-bash
+This allows administrators to dynamically manage the platform’s content and services.
 
-node server.js
+---
 
-Open a new terminal and navigate to the server directory.
-
-cd BarberX/server
-
-Start the application locally and keep the terminal open:
-
-bash
-
-    npm run dev
-
-    This will launch the server on the local host, and you can open the application in your browser.
-
-Usage
-
-After starting the application, you can use the navigation panel to explore different pages and functionalities. The app is designed to be intuitive and easy to use.
-Public Section
-
-The public section of the application provides limited access to basic information about BarberX. Users can browse the general information page for the barbershop, but they do not have access to specific services or the ability to post comments.
-User Section
-
-In the user section, registered users can:
-
-    Read news related to BarberX and the barbering industry.
-    Post and delete their comments on different barbers.
-    View and explore various services offered by the barbershop.
-
-Admin Section
-
-The admin section provides full control over the content of the application. Administrators have access to the following functionalities:
-
-    Add or delete oldest news.
-    Manage barbers – add, edit, or remove barbers.
-    username : admin@abv.bg
-    password: admin
-
-This allows for dynamic management of content and services on the platform.
-Developers
+## Developers
 
 This project was developed by:
 
-    Stiliyan Gospodinov
+- **Stiliyan Gospodinov**
+
+---
+
+Thank you for exploring X Cutz! We hope you find it useful and insightful.
+

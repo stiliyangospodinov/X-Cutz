@@ -1993,17 +1993,23 @@
         rules(settings)
     ];
 
-    const server = http__default['default'].createServer(requestHandler(plugins, services));
+    const http = require('http');
 
-    const port = 3030;
-
-    server.listen(port);
-
-    console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
-    console.log(`Admin panel located at http://localhost:${port}/admin`);
-
-    var softuniPracticeServerMaster = server;
-
-    return softuniPracticeServerMaster;
+    // Основният requestHandler
+    const handler = requestHandler(plugins, services);
+    
+    // Експортиране за Vercel
+    module.exports = (req, res) => {
+        handler(req, res);
+    };
+    
+    // Стартиране за локална среда
+    if (require.main === module) {
+        const port = 3030;
+        const server = http.createServer(handler);
+        server.listen(port, () => {
+            console.log(`Server is running locally on http://localhost:${port}`);
+        });
+    }
 
 })));
