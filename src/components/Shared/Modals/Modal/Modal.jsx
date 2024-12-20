@@ -20,7 +20,7 @@ const Modal = ({ isOpen, onClose, service }) => {
                 <h2>{service?.title}</h2>
                 <p>{service?.description}</p>
                 <p>{service?.more}</p>
-                <button onClick={handleClose}>Close</button>
+                <button onClick={handleClose} className="btn">Close</button>
             </div>
         </div>
     );

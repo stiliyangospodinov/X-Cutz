@@ -1,9 +1,14 @@
 import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const { isAuthenticated, username } = useContext(AuthContext);
+
+  const totalItems = useSelector((state) => 
+    state.cart.items.reduce((acc, item) => acc + item.quantity, 0)
+  );
 
   const handleClickOutside = (event) => {
     const navbarCollapse = document.getElementById("navbarCollapse");
@@ -90,8 +95,25 @@ export default function Header() {
                     {username}'s Profile
                   </Link>
                   <Link to="/logout" className="nav-item nav-link"onClick={handleLinkClick}>Logout</Link>
-                  <Link to="/cart" className="nav-item nav-link" onClick={handleLinkClick}>
+                  <Link to="/cart" className="nav-item nav-link" onClick={handleLinkClick} style={{ position: 'relative' }}>
                     <i className="fas fa-shopping-cart"></i>
+                    {totalItems > 0 && (
+                      <span 
+                        style={{
+                          position: 'absolute',
+                          top: '-5px',
+                          right: '-10px',
+                          backgroundColor: 'red',
+                          color: 'white',
+                          borderRadius: '50%',
+                          padding: '2px 6px',
+                          fontSize: '12px',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        {totalItems}
+                      </span>
+                    )}
                   </Link>
                 </>
               )}

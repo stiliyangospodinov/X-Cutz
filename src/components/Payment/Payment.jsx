@@ -1,47 +1,49 @@
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
 import AuthContext from '../../contexts/authContext';
 import { clearCart } from '../../slices/cartSlice';
 import { useDispatch } from 'react-redux';
 import Modal from "../Shared/Modals/Modal/Modal";
 import PageHeader from '../Shared/PageHeader/PageHeader';
+import ConfirmationModal from '../Shared/Modals/ConfirmationModal/ConfirmationModal';
 
 const initialValues = { fullName: '', address: '', city: '', postalCode: '' };
 
 const Payment = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false); // Успешен модал
+    const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false); // Потвърдителен модал
     const [modalService, setModalService] = useState({ title: '' });
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { username } = useContext(AuthContext); 
     const cartTotal = JSON.parse(localStorage.getItem('cartTotal')) || 0; 
 
-    const submitHandler = async (formData) => {
+    const submitHandler = async () => {
+        setIsConfirmationModalOpen(false);
         try {
-            console.log('Payment details:', formData);
             setModalService({ title: 'Your payment has been successfully processed!' });
             setIsModalOpen(true);
             dispatch(clearCart());
             setTimeout(() => {
                 setIsModalOpen(false);
-                navigate('/'); 
+                navigate('/');
             }, 2000);
         } catch (error) {
             console.error('Error processing payment:', error);
         }
     };
 
-    const { values, onChange, onSubmit } = useForm(submitHandler, initialValues);
+    const { values, onChange } = useForm(() => setIsConfirmationModalOpen(true), initialValues);
 
     return (
         <div>
-     <PageHeader name="Cart" endpoint="cart" /> 
+            <PageHeader name="Cart" endpoint="cart" /> 
             <div className="contact">
                 <div className="container">
                     <div className="align-items-center">
                         <div className="contact-form">
-                            <form id="paymentForm" onSubmit={onSubmit}>
+                            <form id="paymentForm" onSubmit={(e) => { e.preventDefault(); setIsConfirmationModalOpen(true); }}>
                                 <div className="control-group">
                                     <input
                                         type="text"
@@ -96,6 +98,14 @@ const Payment = () => {
                 </div>
             </div>
 
+            {/* Потвърдителен модал */}
+            <ConfirmationModal
+                isOpen={isConfirmationModalOpen}
+                onConfirm={submitHandler}
+                onCancel={() => setIsConfirmationModalOpen(false)}
+            />
+
+            {/* Успешен модал */}
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={() => setIsModalOpen(false)} 

@@ -1,61 +1,84 @@
+/* News Feed Container */
 .news-feed {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* Прозрачен фон с ефект на стъкло */
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    border: 3px solid #1d2434; /* Дебела рамка с цвета на header/footer */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.6);
     margin-top: 20px;
     max-height: 380px; 
     width: 600px;
     overflow: hidden;
+    backdrop-filter: blur(10px); /* Леко размазване на фона */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.news-feed:hover {
+    transform: translateY(-10px); /* Лек подскок при задържане */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Заглавие на News Feed */
 .news-feed h2 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 20px;
-    color: #333;
+    color: #1d2434; /* Цвят на header/footer */
     text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Бутоните за управление */
 .news-feed-controls {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-.btn-add-news, .btn-delete-last {
-    padding: 10px 20px;
+.btn-add-news,
+.btn-delete-last {
+    padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
     color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
     font-size: 16px;
-    text-align: center;
-    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn-add-news {
-    background-color: #28a745;
+    background: linear-gradient(135deg, #28a745, #218838);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-news:hover {
-    background-color: #218838;
+    background: linear-gradient(135deg, #218838, #28a745);
+    transform: scale(1.05);
 }
 
 .btn-delete-last {
-    background-color: #dc3545;
+    background: linear-gradient(135deg, #dc3545, #c82333);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-delete-last:hover {
-    background-color: #c82333;
+    background: linear-gradient(135deg, #c82333, #dc3545);
+    transform: scale(1.05);
 }
 
+/* Контейнер за новините */
 .news-feed-container {
     overflow-y: auto;
     max-height: 300px;
     padding-right: 10px; 
+    scrollbar-width: thin;
+    scrollbar-color: #1d2434 rgba(0, 0, 0, 0.2);
 }
 
+/* Стил на новините */
 .news-feed ul {
     list-style: none;
     padding: 0;
@@ -76,6 +99,7 @@
     font-size: 20px;
     color: #555;
     margin: 0 0 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .news-item p {
@@ -89,6 +113,7 @@
     color: #aaa;
 }
 
+/* Анимации */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -108,15 +133,17 @@
         transform: translateY(0);
     }
 }
-/* Mobile view (max-width: 1024px) */
+
+/* Респонсив стилове */
 @media (max-width: 1024px) {
     .news-feed {
         width: 90%;
         margin: 0 auto;
     }
 
-    .btn-add-news, .btn-delete-last {
-        padding: 8px 16px;
+    .btn-add-news,
+    .btn-delete-last {
+        padding: 10px 20px;
         font-size: 14px;
     }
 
@@ -133,7 +160,6 @@
     }
 }
 
-/* Mobile view (max-width: 767px) */
 @media (max-width: 767px) {
     .news-feed {
         width: 100%;
@@ -145,8 +171,9 @@
         font-size: 20px;
     }
 
-    .btn-add-news, .btn-delete-last {
-        padding: 6px 12px;
+    .btn-add-news,
+    .btn-delete-last {
+        padding: 8px 16px;
         font-size: 12px;
         margin-bottom: 10px;
     }
