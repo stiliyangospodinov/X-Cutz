@@ -1,28 +1,27 @@
 /* News Feed Container */
 .news-feed {
-    background: rgba(255, 255, 255, 0.9); /* Прозрачен фон с ефект на стъкло */
+    background: rgba(255, 255, 255, 0.9); 
     padding: 20px;
     border-radius: 20px;
-    border: 3px solid #1d2434; /* Дебела рамка с цвета на header/footer */
+    border: 3px solid #1d2434;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.6);
     margin-top: 20px;
     max-height: 380px; 
     width: 600px;
     overflow: hidden;
-    backdrop-filter: blur(10px); /* Леко размазване на фона */
+    backdrop-filter: blur(10px); 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .news-feed:hover {
-    transform: translateY(-10px); /* Лек подскок при задържане */
+    transform: translateY(-10px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
-/* Заглавие на News Feed */
 .news-feed h2 {
     font-size: 26px;
     margin-bottom: 20px;
-    color: #1d2434; /* Цвят на header/footer */
+    color: #1d2434; 
     text-align: center;
     font-weight: bold;
     text-transform: uppercase;
@@ -30,7 +29,6 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Бутоните за управление */
 .news-feed-controls {
     display: flex;
     justify-content: center;
@@ -69,7 +67,6 @@
     transform: scale(1.05);
 }
 
-/* Контейнер за новините */
 .news-feed-container {
     overflow-y: auto;
     max-height: 300px;
@@ -78,7 +75,6 @@
     scrollbar-color: #1d2434 rgba(0, 0, 0, 0.2);
 }
 
-/* Стил на новините */
 .news-feed ul {
     list-style: none;
     padding: 0;
@@ -113,7 +109,6 @@
     color: #aaa;
 }
 
-/* Анимации */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -134,7 +129,7 @@
     }
 }
 
-/* Респонсив стилове */
+
 @media (max-width: 1024px) {
     .news-feed {
         width: 90%;

@@ -27,6 +27,7 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Cart from "./components/Cart/Cart";
 import Payment from "./components/Payment/Payment";
+import Users from "./components/Users/Users";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
                     <Route path="/barber/:id" element={<BarberDetails />} />
                     <Route path="/service" element={<Service />} />
                     <Route path="/gallery" element={<Gallery />} />
+                    <Route path="/users" element={<Users />} />
                     <Route element={<AuthGuard />}>
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/logout" element={<Logout />} />
