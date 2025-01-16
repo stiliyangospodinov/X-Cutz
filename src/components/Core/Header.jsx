@@ -76,6 +76,15 @@ export default function Header() {
           >
             <span className="navbar-toggler-icon" />
           </button>
+          <div className="span4">
+            <form method="POST" className="search_form">
+              <input
+                type="text"
+                className="input-block-level search-query"
+                placeholder="Search..."
+              />
+            </form>
+          </div>
           <div
             className="collapse navbar-collapse justify-content-between"
             id="navbarCollapse"
