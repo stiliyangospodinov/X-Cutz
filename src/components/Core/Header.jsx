@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import { useSelector } from "react-redux";
+import SearchBar from "../SearchBar/SearchBar";
 
 export default function Header() {
   const { isAuthenticated, username } = useContext(AuthContext);
@@ -23,6 +24,7 @@ export default function Header() {
       navbarCollapse.classList.remove("show");
     }
   };
+  
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -77,13 +79,7 @@ export default function Header() {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="span4">
-            <form method="POST" className="search_form">
-              <input
-                type="text"
-                className="input-block-level search-query"
-                placeholder="Search..."
-              />
-            </form>
+            <SearchBar/>
           </div>
           <div
             className="collapse navbar-collapse justify-content-between"
@@ -95,7 +91,7 @@ export default function Header() {
               <Link to="/service" className="nav-item nav-link"onClick={handleLinkClick}>Service</Link>
               <Link to="/prices" className="nav-item nav-link"onClick={handleLinkClick}>Prices</Link>
               <Link to="/products" className="nav-item nav-link"onClick={handleLinkClick}>Products</Link>
-              <Link to="/team" className="nav-item nav-link"onClick={handleLinkClick}>Barbers</Link>
+              <Link to="/barbers" className="nav-item nav-link"onClick={handleLinkClick}>Barbers</Link>
               <Link to="/gallery" className="nav-item nav-link"onClick={handleLinkClick}>Gallery</Link>
 
               {isAuthenticated && (
