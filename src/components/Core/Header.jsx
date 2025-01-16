@@ -88,7 +88,7 @@ export default function Header() {
             <div className="navbar-nav ml-auto">
               <Link to="/" className="nav-item nav-link active"onClick={handleLinkClick}>Home</Link>
               <Link to="/about" className="nav-item nav-link"onClick={handleLinkClick}>About</Link>
-              <Link to="/service" className="nav-item nav-link"onClick={handleLinkClick}>Service</Link>
+              <Link to="/services" className="nav-item nav-link"onClick={handleLinkClick}>Service</Link>
               <Link to="/prices" className="nav-item nav-link"onClick={handleLinkClick}>Prices</Link>
               <Link to="/products" className="nav-item nav-link"onClick={handleLinkClick}>Products</Link>
               <Link to="/barbers" className="nav-item nav-link"onClick={handleLinkClick}>Barbers</Link>

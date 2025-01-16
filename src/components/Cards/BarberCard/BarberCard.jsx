@@ -8,7 +8,7 @@ export default function BarberCard({
 }){
 
     return (
-        <Link to={`/barber/${id}`} className="col-lg-3 col-md-6">
+        <Link to={`/barbers/${id}`} className="col-lg-3 col-md-6">
         <div className="team-item">
           <div className="team-img">
             <img src={photo} alt="Team Image" />
